@@ -12,6 +12,7 @@ import numpy as np
 import contextlib
 from pandas.errors import ParserError
 import re
+import string
 
 col_names=utils.load_col_names()
 topics=utils.load_topics()
@@ -116,6 +117,7 @@ def topic_cols(df, topics, cols_to_search):
 #%%
 def load_data():
     dfs=[]
+    bad_dfs= []
     for file in os.listdir():
         if file=='bad_lines.txt':
             continue
@@ -123,6 +125,8 @@ def load_data():
         try:
             df=pd.read_csv(file, sep='\t', index_col=False, error_bad_lines=False)
         except ParserError:
+            print('Parser Error')
+            print(file)
             df=manual_df(file)
         assert tuple(df.columns)==('PT', 'AU', 'BA', 'BE', 'GP', 'AF', 'BF', 'CA', 'TI', 'SO', 'SE', 'BS',
            'LA', 'DT', 'CT', 'CY', 'CL', 'SP', 'HO', 'DE', 'ID', 'AB', 'C1', 'RP',
@@ -130,18 +134,75 @@ def load_data():
            'PI', 'PA', 'SN', 'EI', 'BN', 'J9', 'JI', 'PD', 'PY', 'VL', 'IS', 'PN',
            'SU', 'SI', 'MA', 'BP', 'EP', 'AR', 'DI', 'D2', 'EA', 'PG', 'WC', 'SC',
            'GA', 'UT', 'PM', 'OA', 'HC', 'HP', 'DA')
-        dfs.append(df)
-                        
-    return pd.concat(dfs)
+        if check_df(df):
+            dfs.append(df)
+        else:
+            df= reload_df(file)    
+            assert check_df(df)
+            dfs.append(df)
+    return pd.concat(dfs).reset_index(), bad_dfs
 
 #%%
+def check_df(df):
+    '''Run three different checks that df has proper formatting'''
+    return df_checker(df) and df_checker2(df) and df_checker3(df)
+
+
+def df_checker(df):
+    if df['EI'].str.contains('|'.join(string.ascii_letters.replace('X', ''))).sum() >0:
+        return False
+    return True
+
+def reload_df(fp):
+    '''Fix misformatted df by reading the text file, re-writing it with all 
+    quotation marks taken out, and reading it back in. '''
+    
+    with open(fp, 'r') as file:
+        text = file.read()
+    text = text.replace("'", '').replace('"', '')
+    with open('temp.txt', 'w+') as file2:
+        print(text, file = file2)
+    
+    df = pd.read_csv('temp.txt', sep='\t', 
+                       index_col=False, error_bad_lines=False)
+    os.remove('temp.txt')
+    return df
+    
+
+def df_checker2(df):
+    return df['TI'].str.contains("[\'\"]").sum() == 0
+
+def df_checker3(df):
+    return df['PY'].apply(lambda x: type(x) not in [float, int]).sum() == 0
+
+EI_re = re.compile('|'.join(string.ascii_letters.replace('X', '')))
+def ID_num_checker(n):
+     if EI_re.search(n):
+         return False
+     return True
+
+
+
 
 if __name__=='__main__':
-    df=load_data()
+    
+    df, bad_dfs=load_data()
+    
+    print('Formatting Data')
     cols_to_search=['TI', 'DE', 'ID', 'AB', 'MA', 'SC', 'CT', 'SE', 'BS']
     df=topic_cols(df, topics, cols_to_search)
     
     df['any_topic']=df[list(topics.keys())].sum(axis=1)
+    df['ID_num'] = None
     
+    df.loc[df['DI'].isnull() ==False, 'ID_num'] = df['DI'].dropna()
+    df.loc[
+        (df['DI'].isnull()) & (df['SN'].isnull() == False), 'ID_num'
+        ] = 'book chap ' + df['SN'] + ' // ' +df.index.astype(str)
+    
+    
+    df.loc[df['ID_num'].isnull(), 'ID_num'] = df[df['ID_num'].isnull()]['UT']
+    print('Saving Data')
     with utils.cwd('..'):
         df.to_csv('all_data.csv')       
+    

@@ -25,6 +25,9 @@ def parallelize(data, func, num_of_processes=8):
 
 
 
+
+
+
 def run_on_subset(func, data_subset):
     '''For use in parallelize.
     Stolen from stack overflow, user Tom Raz:
@@ -70,6 +73,11 @@ def split_rows_paralell(df, split_col='AF', sep=';'):
     func= lambda row: split_row(row, split_col, sep)
     return pd.DataFrame(list_flattener(
          parallelize_on_rows(df, func).tolist()))
+
+
+def paralell_multi_row(func, data, num_procs = 8):
+    with Pool(num_procs) as pool:
+        return list_flattener(pool.map(func, data))
 
 
 from contextlib import contextmanager
@@ -126,7 +134,21 @@ def list_flattener(nested_list):
         return list_flattener([n for x in nested_list for n in x])
     else:
         return nested_list
+
+def first_valid(row):
+    '''Give first valid value from a row, left to right.'''
+    
+    val = None
+    for col in row.index:
+        val = row[col]
+        if is_valid(val):
+            return val
+
         
-        
-         
+def is_valid(item):
+    if not item: 
+       return False
+    if type(item) == float:
+        return not np.isnan(item)
+    return True        
 #%%
