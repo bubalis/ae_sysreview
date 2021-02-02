@@ -22,14 +22,19 @@ import numpy as np
 def is_nonzero(x):
     return int(bool(x))
 
-def coocc_matrix(df, columns):
+def coocc_matrix(df, columns, threshold = 1):
     '''Make a coocurance matrix of the columns passed.'''
     
     matrix=df[columns]
-    for column in matrix.columns:
-        matrix[column]=matrix[column].apply(is_nonzero)
-    coocc=matrix.T.dot(matrix)
+
+    if threshold == 1:
+        matrix = matrix.apply(lambda x: (x>0).astype(int)) 
+        coocc=matrix.T @ matrix
+    
+    else: 
+        coocc = matrix.apply(lambda x: (x>=1).astype(int)).T @ matrix.apply(lambda x: (x>=threshold).astype(int))
     print(coocc)
+    #coocc = coocc / coocc.sum(axis=1)
     for c in coocc.columns:
         coocc[c]=coocc[c]/matrix[c].sum() #### creating a % based matrix 
         #(% of column overlap of row )        
@@ -47,74 +52,50 @@ def aut_data_retriever(name, df, columns):
     return sdf.loc[:, columns].sum()
     
 
-
-
 topics=utils.load_topics() 
 
 
-
-
-def split_rows_df(df):
-    return pd.DataFrame(utils.list_flattener(df.apply(split_row, axis=1).tolist()))
-
-def make_author_df(a_list, df):
+def make_author_df(df):
     '''Return a dictionary summarizing author data.'''
     print('Collecting Authors')
-    all_aut_df=utils.split_rows_paralell(df)
-    aut_df=pd.DataFrame(data=a_list, columns=['Author Name'])
     #save 
-    columns=['AF', 'Z9']+[key for key in topics]
+    columns=['author_id', 'Z9']+[key for key in topics]
     print('Assembling Counts')
-    counts=all_aut_df['AF'].value_counts()
-    gb=all_aut_df[columns].groupby('AF')
-    add_data=gb.sum()                   
+    counts=df['author_id'].value_counts()
+    gb=df[columns].groupby('author_id')
+    aut_df=gb.sum()
+    del df
     print('Formatting Data')
-    add_data.rename(columns={**{'Z9': 'num_cites'}, **{key: f'num_pubs_{key}' for key in topics}}, 
+    aut_df.rename(columns={**{'Z9': 'num_cites'}, **{key: f'num_pubs_{key}' for key in topics}}, 
                     inplace=True)
-    aut_df=aut_df.merge(counts, left_on='Author Name', right_index=True)
-    aut_df.rename({'AF': 'num_pubs'}, inplace=True)
-    return aut_df.merge(add_data, 
-                        left_on='Author Name', right_index=True)
+    aut_df=aut_df.merge(counts, left_index=True, right_index=True)
     
-#%%
-
+    aut_df.rename({'author_id': 'num_pubs'}, inplace=True)
+    return aut_df.reset_index()
     
-def make_author_df_old(a_list, df):
-    '''Slow way to make author dataframe.'''
-    aut_dict={}
-    for auth in a_list:
-        aut_dict[auth]={}
-        #sdf=df[df['AF'].str.contains(auth)]
-        sdf=df[df['AF']==auth]
-        aut_dict[auth]['num_pubs']=sdf['AF'].count()
-        aut_dict[auth]['num_cites']=sdf['Z9'].sum()
-        for key in topics: 
-            aut_dict[auth]['num_pubs_{}'.format(key)]=sdf[key].sum()
-    return pd.DataFrame(aut_dict).transpose()
 
-#%%
-df=pd.read_csv(os.path.join("data","corrected_authors.csv"))
-df=df.drop(columns=[col for col in df.columns if 'Unnamed' in col])
-with open(os.path.join('data', 'author_list.txt')) as f:
-        a_list=[author for author in f.read().split('\n')]
-#%%     
-test_set=a_list[:2000]
-
-#%%
+def make_cocc_plot(coocc, path):    
+    coocc.columns=[column.replace('num_pubs_', '') for column in coocc.columns]
+    coocc.index=[label.replace('num_pubs_', '') for label in coocc.index]
+    coocc = coocc.replace({1:np.nan})
+    vmax = coocc.max().max()
+    ax = sns.heatmap(data=coocc, vmax=vmax, cmap=mpl.cm.cividis_r, linecolor='white',linewidths=1 )
+    #ax.xlabels = [l.replace('num_pubs_', '') for  in coocc.columns] 
+    plt.savefig(path, bbox_inches='tight')
+    plt.show(block = False) 
 
 
 
 
 test=False
 if __name__=='__main__':
+    path = os.path.join('data', 'expanded_authors.csv')
     if test:
-       df=pd.read_csv(os.path.join("data","corrected_authors.csv")).head(10000)
+       df=pd.read_csv(path).head(10000)
     else:
-       df=pd.read_csv(os.path.join("data","corrected_authors.csv"))
+       df=pd.read_csv(path)
     topics=utils.load_topics()           
-    
-    
-    
+    df=utils.add_topic_cols(df)
     
     df=df.dropna(axis=0, subset=['AF', 'Z9'])
     df=df[df['Z9'].apply(utils.isnumber)]
@@ -122,15 +103,14 @@ if __name__=='__main__':
     for key in topics:
         df[key]=df[key].astype(int)
     
-    with open(os.path.join('data', 'author_list.txt')) as f:
-        a_list=[author for author in f.read().split('\n')]
+    
     
     
     
     aut_df_path=os.path.join('data', 'author_data.csv')
     if not os.path.exists(aut_df_path):
         print('Making Author DataFrame')
-        author_df=make_author_df(a_list, df)  
+        author_df=make_author_df(df)  
     else:
         author_df=pd.read_csv(aut_df_path)
      
@@ -141,19 +121,15 @@ if __name__=='__main__':
     columns=[f'num_pubs_{topic}' for topic in topics.keys()]
     
     
-    
-    coocc, matrix=coocc_matrix(author_df, columns) #% of authors who publish in Column who also publish in Row
+
     #%%
-    coocc.columns=[column.replace('num_pubs ', '') for column in coocc.columns]
-    coocc.index=[label.replace('num_pubs ', '') for label in coocc.index]
+    coocc1, matrix = coocc_matrix(author_df, columns)
+    make_cocc_plot(coocc1, os.path.join('figures', 'corr_pubs.png'))
     
-    coocc=coocc.replace({1:np.nan})
-    unique_values=utils.list_flattener(coocc.values.tolist())
     
-    vmax=max([v for v in unique_values if not np.isnan(v)])
-    sns.heatmap(data=coocc, vmax=vmax, cmap=mpl.cm.cividis_r, linecolor='white',linewidths=1 )
-    fig_path=os.path.join('figures', 'corr_pubs.png')
-    plt.savefig(fig_path, bbox_inches='tight')
+    coocc2, _ = coocc_matrix(author_df, columns, 2)
+    make_cocc_plot(coocc2, os.path.join('figures', 'corr_pubs2.png'))    
+    
     #%%
     if not os.path.exists(aut_df_path):
         author_df.to_csv(aut_df_path)

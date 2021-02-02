@@ -16,17 +16,24 @@ import utils
 import string
 import json
 import sys
+from functools import partial
 
 def aut_cleaner(string):
     '''CLean author names'''
     string=re.sub(r'"|\[|', '', string)
     string = re.sub(r"'|\]", '', string)
+    
+    return initials_list_to_initials(string)
+
+def initials_list_to_initials(string):
+    '''Convert a name Doe, JF to Doe, J. F.'''
     parts = name_spliter(string)
     if len(parts)==2:
         if parts[1].upper() == parts[1] and len(parts[1]) <= 3 and '.' not in parts[1]:
             return string.replace(parts[1], '. '.join(parts[1])+'.')
+    
     return string
-               
+           
 f_letter =re.compile(r'^.+?\,\s\w')
 
 def uniq(li):
@@ -173,15 +180,15 @@ def flat_w_uniq(nested_li):
 def make_aut_df(df):
     '''Get all name-forms associated with each numeric identifier for the two
     identifier lists.'''
-    
-    df['article_index'] = df.index
+    df['index'] = df.index
     adf = pd.DataFrame(utils.list_flattener(
         utils.parallelize_on_rows(
-            df, all_ids_row).to_list()
+            df, all_ids_row, num_of_processes=6).to_list()
         )
         )    
     
-    adf.rename(columns= {'names': 'aut_tuple'}, inplace = True)
+    adf.rename(columns= {'names': 'aut_tuple', 'index': 'ID_num'},
+               inplace = True)
     return adf
 
 def flat_uniq_nonnan(data):
@@ -196,7 +203,9 @@ def max_len(li):
 
 def is_full_name(name):
     '''Return whether the second part of a name has at least 2 letters in it.'''
-    return count_letters(name.split(',')[-1])>2
+    if ',' in name:
+        return count_letters(name.split(',')[-1])>2
+    return False
 
 
 
@@ -244,6 +253,7 @@ def identifier_df(adf, ID, other_id):
     gb = adf.groupby(ID)
     df = gb[['aut_tuple', 'inst', 'email', 'postal_code', 'indicies']].agg(flat_uniq_nonnan)
     df[other_id]=gb[other_id].agg('first')
+    
     for column in ['inst', 'email', 'postal_code']:
         df.loc[df[column].isnull(), column] = [[]] * df[column].isnull().sum()
         assert np.nan not in df[column].tolist()
@@ -253,6 +263,7 @@ def identifier_df(adf, ID, other_id):
         
     gb = df.reset_index().groupby('longer_name')
     df = gb[['aut_tuple', 'inst', 'email', 'postal_code', 'indicies']].agg('first')
+    
     df['longer_names'] = df['aut_tuple'].apply(
         lambda x: [i for i in x if count_letters(i.split(',')[-1])>2])
     for column in ['inst', 'email', 'postal_code']:
@@ -293,8 +304,7 @@ def break_into_sub_cols(df, col):
     df[col_names]=df[col].apply(pd.Series)
     return df
    
-    print(col)
-    raise
+
 
 
 def tuple_match(tup1, tup2):
@@ -351,17 +361,26 @@ def ln_fi_get(name):
 
 
 def get_email(row):
+    '''If the EM column in the df has an email that matches
+    the author's first 3 to 5 letters of last name and first initial,  
+    return that email as a string. 
+    '''
+    
     emails=row['EM']
     if type(emails)!=str:
         return None
     emails=emails.split(';')
     try:
-        string= re.search('\w{3,5}', row['longer_name'].split(',')[0].lower()).group()
+        string1 = re.search('\w{3,5}', row['longer_name'].split(',')[0].lower()).group()
+        string2 = row['ln_fi'][-1]
     except:
         return None
     
     for em in emails:
-        if string in em:
+        if '@' not in em:
+            continue
+        n = em.split('@')[0]
+        if string1 in n and string2 in n:
             return em.strip()
 
 def extract_solved(adf):
@@ -373,8 +392,11 @@ def extract_solved(adf):
     return solved
 
 #%%
-def match_by(adf, col_names):
-    
+def make_matcher(adf, col_names):
+    '''Create a df for an alternate match field (or set off fields).
+    Return a dataframe with columns:
+        [col_names} + [indicies, aut_tuple, longer name and an
+                       id number absed on those columns.'''
     gb = adf.dropna(subset=col_names).groupby(
         ['ln_fi']+ col_names)
     matches = pd.DataFrame(gb['aut_tuple'].agg(flat_uniq_nonnan))
@@ -409,17 +431,21 @@ def parse_multi_address(string):
     return out
 
 def parse_address_2(string, name):
-    '''For parsing the corresponding author address in column "RP" '''
-    split_string=r'\),'
-    if name in string:
-        return string.split(split_string)[1]
+    '''For parsing the corresponding author address in column "RP" 
+    Split on the string 'corresponding author' Name appears before this string,
+    address appears after it. 
+    '''
+    pieces = re.split('\(corresponding author\),', string)
+    for i, piece in enumerate(pieces):
+        if name in piece:
+           return pieces[i+1].split(';')[0].strip()
 
 def get_address(row):
     '''Extract the author address from either column C1 (inst affiliation)
     or from column RP (corresponding author).'''
     
     string=row['C1']
-    name=row['AF']
+    name=row['AU']
     if type(string)==str:
         if '[' in string:
             return parse_multi_address(string).get(name)
@@ -516,27 +542,32 @@ def match_by_columns(adf, ids, id_col, left_on, right_on):
     Return the adf, and the ids updated with the new matches.'''
     
     m = adf[adf[id_col].isnull()].merge(
-        ids.reset_index(), 
+        ids.dropna(subset=right_on).reset_index(), 
     left_on = left_on, 
     right_on = right_on, 
     how = 'inner')
     
-    if not m.empty:
-        
-        col_names =[c for c in ['email', 'inst', 'postal_code'] if c not in left_on]
-        
-        #update the ids data_frame
-        for col_name in ['email', 'inst', 'postal_code']:
-            ids.loc[m[f'{id_col}_y'], f'{col_name}'] = m.apply(
-                lambda row: add_to_list_df(row, col_name), axis=1).tolist()
-        for col in col_names: 
-            ids[col] = nan_to_emptylist(ids[col])
+    if right_on[-1] =='email_0':
+        m.to_csv(os.path.join('data', f'{id_col}_emails.csv'))
+    try:
+        if not m.empty:
             
-        print(f'{m.shape[0]} Matches Found')
-       
-        #update author dataframe
-        adf.loc[m['aut_index'], id_col] = m[f'{id_col}_y'].tolist()
-        
+            col_names =[c for c in ['email', 'inst', 'postal_code'] if c not in left_on]
+            
+            #update the ids data_frame
+            for col_name in ['email', 'inst', 'postal_code']:
+                ids.loc[m[f'{id_col}_y'], f'{col_name}'] = m.apply(
+                    lambda row: add_to_list_df(row, col_name), axis=1).tolist()
+            for col in col_names: 
+                ids[col] = nan_to_emptylist(ids[col])
+                
+            print(f'{m.shape[0]} Matches Found')
+           
+            #update author dataframe
+            adf.loc[m['aut_index'], id_col] = m[f'{id_col}_y'].tolist()
+    except:
+        print(m.columns, ids.columns, adf.columns)
+        raise
         
         
     return adf, ids
@@ -560,10 +591,13 @@ def multi_val_matcher(adf, ids, id_col, col_name):
 
 
 def long_name_matcher(adf, ids, id_col):
-    '''Add IDs to the adf from an id_dataframe based on exact matches of long-form names.'''
-    
+    '''Add IDs to the adf from an id_dataframe based 
+    on exact matches of long-form names.'''
+    ids['longer_names'] = ids['longer_names'].apply(lambda li: [i for i in li if is_full_name(i)])
     ids=break_into_sub_cols(ids, 'longer_names')
+    print('Matching by longer name and  ', id_col)
     for sub_col in [c for c in ids.columns if 'longer_names_' in c]:
+        
         adf, ids = match_by_columns(adf, ids, id_col, 
                                     left_on = ['longer_name'],
                                     right_on = [sub_col])
@@ -575,6 +609,7 @@ def all_numeric_matchers(adf, ids, id_col):
     
     adf, ids = long_name_matcher(adf, ids, id_col)
     for other_id in ['email', 'inst', 'postal_code']:
+        print(f'Matching by {id_col} and {other_id}')
         adf, ids= multi_val_matcher(adf, ids, id_col, other_id)
     return adf, ids
 
@@ -586,7 +621,7 @@ def all_numeric_matchers(adf, ids, id_col):
 
 def alternate_matcher(adf, col_name):
     '''Function for finding matches based on other column values. '''
-    matches = match_by (adf, [col_name])
+    matches = make_matcher(adf, [col_name])
     adf[f'{col_name}_id'] = None 
 
     m = adf.merge(
@@ -597,6 +632,8 @@ def alternate_matcher(adf, col_name):
     how = 'inner')
     
     if not m.empty:
+        print(f'{m.shape[0]} matches found')
+        print(m[col_name].head(5))
         adf.loc[m['aut_index'], f'{col_name}_id'] = m['id_num'].tolist()
     m = adf.merge(
         matches[matches['longer_name'].apply(is_full_name)], 
@@ -608,34 +645,53 @@ def alternate_matcher(adf, col_name):
     
     return adf, matches
 
+def try_merge(left, right, **kwargs):
+    try:
+        return left.merge(right, **kwargs)
+    
+    except MemoryError:
+        out = []
+        right.to_csv('scratch.csv')
+        reader = pd.read_csv('scratch.csv', chunksize = 1000)
+        for r in reader:
+            out.append(left.merge(r, **kwargs))
+            del r
+        return pd.concat(out)
+
+
+def row_names_match(row):
+    return all_parts_match(row['longer_name_x'], row['longer_name_y'])
 
 def retrieve_additional_codes(adf, match_cols, uniq_names):
-    left= adf[(adf[match_cols].fillna(False).astype(bool).sum(axis =1) == 0) 
+    left= adf[(adf[match_cols].fillna(False).sum(axis =1) == 0) 
               & (adf['ln_fi'].isin(uniq_names) ==False)].copy()
     
-    codes = adf[(adf[match_cols].fillna(False).astype(bool).sum(axis =1) != 0)][['OI', "RI", 
+    codes = adf[(adf[match_cols].fillna(False).sum(axis =1) != 0)][['OI', "RI", 
                     'email_id', 
                     'inst_id', 
                     'postal_code_id', 'longer_name', 'ln_fi']].copy()
     
-    
-    #assign identifier info rows with full-name matches to the code df:
-    m = left.merge(codes, left_on='ln_fi', right_on = 'ln_fi', how = 'inner')
-    
-    m['matches'] = m.apply(
-        lambda row: all_parts_match(row['longer_name_x'], row['longer_name_y']), 
-        axis=1)
-    
-    
-    for col in match_cols:
-        adf.loc[m[m['matches']]['aut_index'], col] = m[m['matches']][f'{col}_y'].tolist()
-    
-
-    name_matches = all_fn_li_match(left)
-    adf['name_id'] = None
-    adf.loc[name_matches['aut_index'], 'name_id'] = name_matches['name_id'].tolist()
-    return adf
-
+    try: 
+        #assign identifier info rows with full-name matches to the code df:
+        m = try_merge(left, codes, 
+                      left_on='ln_fi', right_on = 'ln_fi', how = 'inner')
+        
+        del codes
+        if not m.empty:
+            m['matches'] = m.apply(row_names_match, axis=1)
+            
+            
+            for col in match_cols:
+                adf.loc[m[m['matches']]['aut_index'], col] = m[m['matches']][f'{col}_y'].tolist()
+            
+        
+            name_matches = all_fn_li_match(left)
+            adf['name_id'] = None
+            adf.loc[name_matches['aut_index'], 'name_id'] = name_matches['name_id'].tolist()
+        return adf
+    except:
+        globals().update(locals())
+        raise
 
 def all_fn_li_match(left):
     '''Search for First-name last-initial groups where all names are consistent.
@@ -725,11 +781,45 @@ def assign_name_string(adf):
     return adf.rename(columns = {'longer_name_x' : 'longer_name', 
                                  'longer_name_y': 'id_name'})
 
+
+def clean_data(df):
+    df['AU'] = df['AU'].apply(aut_col_cleaner) 
+    df['AF'] = df["AF"].apply(aut_col_cleaner)
+    for col in ["EM", "OI", "RI"]:
+        df[col] = df[col].apply(lambda x: str(x).lower())
+    return df
+
+
+def clean_aut_df(adf):
+    adf['address'] = utils.parallelize_on_rows(adf, get_address) 
+    with Pool(8) as pool:   
+        adf['ln_fi']=pool.map(ln_fi_get, adf['AF'])
+        adf['postal_code'] = pool.map(get_postal_code, adf['address'])
+       
+    
+    adf['aut_index'] = adf.index
+    assert adf['ID_num'].isnull().sum()== 0
+    
+    
+    adf['longer_name'] = adf['aut_tuple'].apply(lambda x : sorted(x[1:], key = len)[-1])    
+    
+    adf['email']=utils.parallelize_on_rows(adf, get_email)
+    adf['inst']=adf['address'].apply(extract_inst)
+    return adf
+
+
+
 if __name__ == '__main__':
+    test = False
+    if test:
+        test_string = '_test'
+    else:
+        test_string = ''
+    
     if len (sys.argv) == 1:
-        data_path=os.path.join('data', 'all_data.csv')
-        save_path=os.path.join('data', 'all_author_data.csv')
-        article_data_save_path = os.path.join('data', 'corrected_authors.csv')
+        data_path=os.path.join('data', 'all_data_2.csv')
+        save_path=os.path.join('data', f'all_author_data{test_string}.csv')
+        article_data_save_path = os.path.join('data', f'expanded_authors{test_string}.csv')
     elif len(sys.argv) == 4:
         data_path = sys.argv[1]
         save_path = sys.argv[2]
@@ -738,40 +828,25 @@ if __name__ == '__main__':
         raise ValueError(f'Script needs 3 arguments, data path and save path. {len(sys.argv)} args provided')
     
     df=pd.read_csv(data_path)
-    df['AU'] = df['AU'].apply(aut_col_cleaner) 
-    df['AF'] = df["AF"].apply(aut_col_cleaner)
+    if test:
+        df = df.sample(20000)
+    print(df.shape)
+    #assert df['ID_num'].isnull().sum()==0
     
-    for col in ["EM", "OI", "RI"]:
-        df[col] = df[col].apply(lambda x: str(x).lower())
+    df = clean_data(df)
     
     columns_to_use =  ['AF', "AU", "EM", "OI", "RI", "C1", "RP" ]
     
     adf = make_aut_df(df.loc[:, columns_to_use])
+    print(f'Working with {adf.shape[0]} author-entries.')
+    assert adf['ID_num'].isnull().sum()==0
     df=None
     
     print('Formatting Author Data')
-    adf['address'] = utils.parallelize_on_rows(adf, get_address) 
-    with Pool(8) as pool:   
-        adf['ln_fi']=pool.map(ln_fi_get, adf['AF'])
-        adf['postal_code'] = pool.map(get_postal_code, adf['address'])
-       
-    
-    adf['aut_index'] = adf.index
-    
-    
-    #adf.to_csv(os.path.join('data', 'big_author_temp.csv'))
-    
-    #adf.drop(index=uniq_names.index, inplace=True)
-    
-    adf['longer_name'] = adf['aut_tuple'].apply(lambda x : sorted(x[1:], key = len)[-1])    
-    
-    adf['email']=utils.parallelize_on_rows(adf, get_email)
-    adf['inst']=adf['address'].apply(extract_inst)
+    adf = clean_aut_df(adf)
     
     print("Matching by Email, Postal Code and Institution")
     
-    
-    #%%
     print('Making Identifier Dataframes')
     RIs = identifier_df(adf, 'RI', 'OI')
     assert np.nan not in RIs['email'].tolist()
@@ -781,44 +856,53 @@ if __name__ == '__main__':
     for ids, col in zip((RIs, OIs), ('RI', 'OI')):
         adf[col].loc[adf[col].isin(ids.index) == False] = np.nan
     
-    
+    print('Matching by RI')
     adf, RIs = all_numeric_matchers(adf, RIs, 'RI')
+    print('Matching by OI')
     adf, OIs = all_numeric_matchers(adf, OIs, 'OI')
+    assert adf['ID_num'].isnull().sum() == 0
     
-    
-    
+   
     uniq_names=make_uniq_names(adf)
     to_solve = adf.loc[(adf['RI'].isnull()) & (adf['OI'].isnull()) & (adf['ln_fi'].isin(uniq_names) ==False )]
     
-    
+    assert adf['ID_num'].isnull().sum()==0
     matcher_dict={}
     for col_name in ['email', 'postal_code', 'inst']:
+        print(f'Using {col_name} for matches')
         adf, matcher_dict[col_name] = alternate_matcher(adf, col_name)
         assert f'{col_name}_id' in adf.columns
         
-    
+    assert adf['ID_num'].isnull().sum()==0
     match_cols= ['OI', "RI", 
                     'email_id', 
                     'inst_id', 
                     'postal_code_id']
     
-
+    RIs.to_csv(os.path.join('data',f'RIs{test_string}.csv'))
+    OIs.to_csv(os.path.join('data', f'OIs{test_string}.csv'))
+    del OIs
+    del RIs
+    
     adf = retrieve_additional_codes(adf, match_cols, uniq_names)
     match_cols.append('name_id')  
-    
+    assert adf['ID_num'].isnull().sum()==0
     adf.to_csv(save_path)
     
-    
+    print('Finding pure name-based matches.')
     adf = assign_remaining_names(adf, match_cols)
     adf['author_id'] = adf[match_cols].apply(utils.first_valid, axis = 1)
     adf = assign_name_string(adf)
+    assert adf['ID_num'].isnull().sum()==0
+    del to_solve
+    del ids
     
-    
+    adf = adf[['ID_num', 'longer_name', 'author_id']]
+    print('Saving Data')
     adf.to_csv(save_path)
     df = pd.read_csv(data_path)
-    adf = adf[['article_index', 'longer_name', 'author_id']].merge(df, 
-                                                                   left_on = 'article_index', 
-                                                                   right_index= True, how = 'left')
+    adf=adf.merge(df, left_on = 'ID_num', 
+             right_on= 'index', how = 'left')
     
     
     adf.to_csv(article_data_save_path)

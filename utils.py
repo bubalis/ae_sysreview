@@ -88,6 +88,7 @@ def load_topics():
     return json.loads(
         open(os.path.join(this_dir, 'data', 'keys', 'topic_dic.txt')).read())
 
+topics = load_topics()
 
 def load_col_names():
     return json.loads(
@@ -134,6 +135,44 @@ def list_flattener(nested_list):
         return list_flattener([n for x in nested_list for n in x])
     else:
         return nested_list
+
+def make_combined_text_col(df, columns):
+    'Aggregate text from df[columns into a single series.'
+    sub=df[columns].astype(str)
+    return sub[columns[0]].str.cat(sub[columns[1:]].astype(str), sep=' ')
+
+
+#%%
+cols_to_search=['TI', 'DE', 'ID', 'AB', 'MA', 'SC', 'CT', 'SE', 'BS']
+
+def topic_cols(df):
+    '''Make boolean columns for topics. For each column, represents whether
+    any of the cols_to_search match to that column.
+    Args: Dataframe.
+    
+    Returns: dataframe of the boolean values.'''
+    
+    all_text=make_combined_text_col(df, cols_to_search)
+    data=pd.DataFrame()
+    for key,values in topics.items():
+        data[key]=all_text.str.contains(values[0])*all_text.str.contains(values[1])
+    return data
+
+
+
+
+
+def add_topic_cols(df):
+    '''Pass a dataframe, add a set of boolean columns representing
+    which keywords each row fits under, if any.'''
+    df[list(topics.keys())]=topic_cols(df)
+    df['any_topic']=df[list(topics.keys())].sum(axis=1)
+    return df
+
+def filter_relevant(df):
+    '''Return only the rows from the dataframe that match at least 1 kw.'''
+    mask = topic_cols(df).sum(axis=1).astype(bool)
+    return df.loc[mask]
 
 def first_valid(row):
     '''Give first valid value from a row, left to right.'''

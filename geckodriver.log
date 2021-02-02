@@ -1,0 +1,1193 @@
+1610824069458	geckodriver	INFO	Listening on 127.0.0.1:33715
+1610824070469	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilenYEXR1"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610824073046	Marionette	INFO	Listening on port 44801
+1610824073107	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://library.uvm.edu/sites/default/files/js/js_bHixdNqIm_fGV7c3IlqVJl-OQXz4T0rdcigI0kCjuGg.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+
+(firefox:27835): Gtk-WARNING **: 14:30:38.723: Error loading theme icon 'document-save' for stock: Icon 'document-save' not present in theme Yaru
+
+(firefox:27835): dconf-WARNING **: 14:31:00.624: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:00.782: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:00.798: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:00.810: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:00.827: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:00.843: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:01.516: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:01.549: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:01.586: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:01.621: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:01.658: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:01.681: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:01.700: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:01.721: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:01.741: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:01.806: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:02.952: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:02.983: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:03.062: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:03.148: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:03.233: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:03.252: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:03.284: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:03.301: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:04.916: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:04.951: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:05.006: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:05.022: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:05.030: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:05.047: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:05.064: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:05.080: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:06.777: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:08.059: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:08.748: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:10.264: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:11.607: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:11.874: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:11.912: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:11.929: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:11.967: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:12.023: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:12.125: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:12.224: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:12.266: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:14.773: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:14.929: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:14.978: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:15.014: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:15.037: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:15.059: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:15.081: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:15.114: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:15.849: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:15.866: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:15.883: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:15.918: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:15.958: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:15.984: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.021: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.038: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.055: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.071: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.088: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.105: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.151: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.196: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.213: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.229: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.246: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.264: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.280: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.296: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.313: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:16.500: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:17.975: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:18.409: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:45.775: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:45.869: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:46.179: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:48.853: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:48.929: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:48.958: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:49.005: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:49.115: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:50.033: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:52.458: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:52.495: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:53.054: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:53.142: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:53.163: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:53.178: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:53.211: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:53.245: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:53.262: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:53.283: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:53.305: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:53.315: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.228: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.261: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.290: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.312: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.333: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.354: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.375: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.386: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.396: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.417: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.438: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.449: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.462: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.479: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.495: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.512: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.529: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.547: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.562: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.580: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.602: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.625: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.672: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.823: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.863: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.895: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.908: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:27835): dconf-WARNING **: 14:31:55.909: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+JavaScript warning: https://library.uvm.edu/sites/default/files/js/js_bHixdNqIm_fGV7c3IlqVJl-OQXz4T0rdcigI0kCjuGg.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1610914107518	geckodriver	INFO	Listening on 127.0.0.1:46835
+1610914108527	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--start-maximized" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileqBg7Y4"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610914111387	Marionette	INFO	Listening on port 44149
+1610914111461	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://library.uvm.edu/sites/default/files/js/js_bHixdNqIm_fGV7c3IlqVJl-OQXz4T0rdcigI0kCjuGg.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1610914426060	Marionette	INFO	Stopped listening on port 44149
+1610914447618	geckodriver	INFO	Listening on 127.0.0.1:43653
+1610914447625	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilejvUwAr"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610914450255	Marionette	INFO	Listening on port 46509
+1610914450357	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://library.uvm.edu/sites/default/files/js/js_bHixdNqIm_fGV7c3IlqVJl-OQXz4T0rdcigI0kCjuGg.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+
+(firefox:2565): dconf-WARNING **: 15:17:19.459: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:19.584: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:19.599: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:19.611: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:19.629: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:19.645: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:19.661: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:19.679: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:20.662: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:21.162: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:21.180: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:21.200: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:21.219: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:21.229: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:21.249: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:21.263: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:21.279: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:21.296: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:21.315: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:21.518: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:21.633: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:21.704: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:21.818: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:23.737: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:23.802: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:23.820: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:23.836: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:23.852: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:23.869: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:23.886: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:23.902: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:24.302: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:24.402: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:24.419: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:24.435: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:24.452: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:24.468: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:24.485: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:24.502: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:24.519: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:24.536: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:24.552: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:24.568: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:24.585: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:24.870: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:25.702: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:27.127: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:27.192: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:27.214: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:27.226: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:27.244: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:27.265: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:27.275: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:27.292: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:27.310: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:27.329: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:27.342: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:27.359: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:27.379: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:28.075: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:28.174: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:28.221: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:28.258: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:28.283: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:28.319: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:28.343: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:28.366: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:28.403: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:30.590: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:30.604: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:30.621: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:30.708: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:17:30.709: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:17.334: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:17.451: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:17.494: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:17.572: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:19.274: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:19.392: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:19.575: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:39.265: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:39.419: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:39.492: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:39.575: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:41.249: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:41.294: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:41.331: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:41.390: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:41.413: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:41.450: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:41.486: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:41.521: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:41.579: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:42.651: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:42.729: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:42.771: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:42.866: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:42.934: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:43.004: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:47.130: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:47.159: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:47.172: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:47.231: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:47.266: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:47.293: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:47.340: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:47.380: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:47.397: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:47.413: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:47.458: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:50.440: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:50.479: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:50.496: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:50.533: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:50.551: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:50.567: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:50.585: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:50.601: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:50.616: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:50.660: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:51.588: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:51.629: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:51.645: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:51.681: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:51.697: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:51.714: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:51.731: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:51.747: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:51.764: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:51.810: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:53.088: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:53.126: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:53.141: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:53.158: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:53.174: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:53.191: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:53.208: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:53.225: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:53.242: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:53.258: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:53.275: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:18:53.321: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:13.723: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:13.770: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:13.793: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:13.808: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:13.824: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:13.840: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:13.857: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:13.873: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:13.890: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:13.907: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:13.923: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:13.940: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:13.957: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:16.532: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:16.547: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:16.571: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:19:16.571: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:27.688: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:27.759: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:27.783: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:27.892: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:27.946: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:30.661: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:35.815: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:36.231: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:37.140: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:38.901: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:53.652: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:53.824: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:54.424: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:55.530: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:55.814: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:55.837: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:55.874: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:55.921: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:55.968: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:56.015: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:56.405: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:56.468: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:56.518: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:56.558: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:56.587: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:56.602: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:56.616: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:56.628: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:56.642: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:56.659: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:58.236: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:58.297: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:58.321: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:58.348: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:58.365: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:58.381: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:20:58.397: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:00.999: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.016: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.033: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.049: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.066: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.082: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.100: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.114: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.131: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.148: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.164: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.181: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.197: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.214: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.232: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.248: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.265: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.282: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.298: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.315: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.331: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.353: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.364: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.380: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.398: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:01.414: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:28.497: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:28.563: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:28.581: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:28.603: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:28.641: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:28.677: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:28.712: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:28.748: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:30.203: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:30.387: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:31.449: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:31.490: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:31.550: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:31.781: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:31.822: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:31.850: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:32.154: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:32.204: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:32.225: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:32.256: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:32.316: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:32.358: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:32.444: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:32.471: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:32.495: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:32.520: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:32.541: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:32.562: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:32.582: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:33.996: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:34.079: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:34.096: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:34.115: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:34.137: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:34.147: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:34.164: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:34.179: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:34.196: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:34.213: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:34.230: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:34.246: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:34.279: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:36.039: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:36.055: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:36.087: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:2565): dconf-WARNING **: 15:21:36.088: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+1610921139832	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:228:19
+TimedPromise@chrome://marionette/content/sync.js:213:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1610995623419	geckodriver	INFO	Listening on 127.0.0.1:60619
+1610995624419	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilem0lOTb"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610995634722	Marionette	INFO	Listening on port 35239
+1610995634845	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://library.uvm.edu/sites/default/files/js/js_bHixdNqIm_fGV7c3IlqVJl-OQXz4T0rdcigI0kCjuGg.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+
+(firefox:17357): dconf-WARNING **: 13:49:57.237: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:57.474: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:58.377: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:58.613: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:58.626: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:58.646: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:58.660: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:58.698: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:58.720: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:58.744: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:58.764: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:58.776: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:58.795: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:58.889: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:59.837: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:59.894: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:49:59.979: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:50:00.063: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:50:00.204: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:50:01.515: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:50:01.706: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:50:03.039: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:50:03.074: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:50:03.548: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:50:03.941: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:50:04.405: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:50:04.496: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:50:05.838: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:50:05.856: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:17357): dconf-WARNING **: 13:50:05.856: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+1611000410987	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:228:19
+TimedPromise@chrome://marionette/content/sync.js:213:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1611000428935	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:228:19
+TimedPromise@chrome://marionette/content/sync.js:213:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1611003925932	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:228:19
+TimedPromise@chrome://marionette/content/sync.js:213:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1611004029951	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:228:19
+TimedPromise@chrome://marionette/content/sync.js:213:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1611004274352	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:228:19
+TimedPromise@chrome://marionette/content/sync.js:213:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1611004504479	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:228:19
+TimedPromise@chrome://marionette/content/sync.js:213:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1611015410951	Marionette	INFO	Stopped listening on port 35239
+1611262713093	geckodriver	INFO	Listening on 127.0.0.1:57365
+1611262714106	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileI2PeJM"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611262717091	Marionette	INFO	Listening on port 40943
+1611262717147	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://library.uvm.edu/sites/default/files/js/js_bHixdNqIm_fGV7c3IlqVJl-OQXz4T0rdcigI0kCjuGg.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+
+(firefox:32664): dconf-WARNING **: 15:59:31.679: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:31.828: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:31.844: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:31.855: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:31.872: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:31.889: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:33.208: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:33.351: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:33.438: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:34.562: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:34.586: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:34.623: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:34.676: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:34.696: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:34.710: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:34.726: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:37.056: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:37.069: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:37.082: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:32664): dconf-WARNING **: 15:59:37.082: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1611350672740	geckodriver	INFO	Listening on 127.0.0.1:45797
+1611350673747	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileIDpisp"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611350676988	Marionette	INFO	Listening on port 36927
+1611350677091	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://library.uvm.edu/sites/default/files/js/js_bHixdNqIm_fGV7c3IlqVJl-OQXz4T0rdcigI0kCjuGg.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+
+(firefox:3428): dconf-WARNING **: 16:25:55.508: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:25:55.656: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:25:55.672: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:25:55.681: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:25:55.699: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:25:55.719: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:25:57.291: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:25:57.496: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:25:57.600: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:25:59.320: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:25:59.439: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:25:59.490: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:25:59.520: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:00.570: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:00.628: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.074: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.174: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.191: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.207: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.223: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.240: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.256: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.274: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.290: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.306: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.324: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.362: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.409: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.447: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.484: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.520: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.608: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:01.691: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:03.553: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:03.563: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:3428): dconf-WARNING **: 16:26:03.564: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+JavaScript error: chrome://global/content/elements/browser-custom-element.js, line 1709: Error: permitUnload is already running for this tab.
+JavaScript error: chrome://browser/content/browser.js, line 7939: uncaught exception: undefined
+1611430569979	Marionette	INFO	Stopped listening on port 36927
+1611525189434	geckodriver	INFO	Listening on 127.0.0.1:42347
+1611525189441	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiletbPO78"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611525192185	Marionette	INFO	Listening on port 36121
+1611525192286	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://library.uvm.edu/sites/default/files/js/js_bHixdNqIm_fGV7c3IlqVJl-OQXz4T0rdcigI0kCjuGg.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+
+(firefox:4342): dconf-WARNING **: 16:55:26.450: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:26.622: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:26.638: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:26.654: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:27.288: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:27.339: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:27.354: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:27.373: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:27.388: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:27.406: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:27.421: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:27.438: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:27.454: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:27.472: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:27.488: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:27.508: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:27.535: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:28.196: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:28.217: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:28.290: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:28.411: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:28.491: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:30.212: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:30.392: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:30.482: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:31.751: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:32.258: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:32.926: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:33.266: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:33.331: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:33.358: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:33.386: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:33.424: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:33.456: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:33.527: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:33.654: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:33.711: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:34.134: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:34.229: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:34.246: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:34.263: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:34.280: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:34.310: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:34.315: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:34.330: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:34.346: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:34.363: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:34.379: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:34.396: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:34.412: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:34.979: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:35.013: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:35.030: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:35.047: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:35.068: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:35.079: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:35.095: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:35.112: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:35.129: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:35.145: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:35.162: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:35.179: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:35.195: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:35.999: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:36.016: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:36.063: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(firefox:4342): dconf-WARNING **: 16:55:36.064: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=38bd5f3739f7e442f7b134f85fb6f44e --binary-syntax --close-stderr”: Child process exited with code 1
+Gdk-Message: 20:50:04.837: firefox: Fatal IO error 11 (Resource temporarily unavailable) on X server 172.17.124.129:0.
+
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
