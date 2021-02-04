@@ -8,7 +8,6 @@ Created on Wed Nov  6 15:17:21 2019
 
 import os
 import pandas as pd
-import dask.dataframe
 import re
 from author_work import aut_cleaner
 import utils
@@ -33,14 +32,19 @@ def parse_ref(string):
     
         
     dic ['journ'] = pieces[2].strip()
+    
     if 'DOI' in pieces[-1]:
         dic ['DOI'] = pieces[-1].replace('DOI ', '').lower().strip(']').strip()
+    
     vol_pieces = [ p for p in pieces if re.search('V\d', p)]
     if vol_pieces:
         dic ['vol'] = vol_pieces[0].replace('V', '').strip()
+        
+    
     page_pieces = [p for p in pieces if re.search('P\d', p)]
     if page_pieces:
         dic ['page'] = page_pieces[0].replace('P', '').strip()
+    
     return pd.Series(dic) 
 
 def get_refs(data):
@@ -52,10 +56,10 @@ def get_refs(data):
         problems = re.findall(r'\[.+?\]', data)
         for prob in problems:
             data.replace(prob, prob.replace(';', '*****'))
-        return [parse_ref2(ref.replace('*****', ';')) for ref in data.split('; ')]
+        return [parse_ref(ref.replace('*****', ';')) for ref in data.split('; ')]
    
     try:
-        return [parse_ref2(ref) for ref in data.split('; ')]
+        return [parse_ref(ref) for ref in data.split('; ')]
     except:
         print(data)
         raise
@@ -70,13 +74,18 @@ def ref_df_maker(row):
     return refs
 
 def make_ref_list(string):
+    '''Convert string in list of references.'''
+    
+    #correction for dealing with dois with ';' in the them:
     if '[' in string:
         problems = re.findall(r'\[.+?\]', string)
         for prob in problems:
             string.replace(prob, prob.replace(';', '*****'))
+            
     return [x.replace('*****', ';') for x in string.split('; ')]
 
-def make_rdf2(df):
+
+def make_rdf(df):
     data= utils.filter_relevant(df).dropna(subset=['CR'])
     data = data[['CR']]
     data['CR'] = data["CR"].apply(make_ref_list)
@@ -88,7 +97,7 @@ def make_rdf2(df):
     data['index'] = data.index
     return data
 
-def make_rdf(df):
+def make_rdf_old(df):
     '''Make a dataframe of all cited references in dataset.'''
     
     data= utils.filter_relevant(df).dropna(subset=['CR'])
@@ -237,7 +246,7 @@ def collect_cites(df, rdf):
     return refs, doi_corrections
 #%%
 def correct_dois(df, doi_corrections):
-    '''Fix DOIs that had been missing from the original article.'''
+    '''Add DOIs that were 'discovered' in the matching process. '''
     try:
         
         df = df.merge(doi_corrections, left_on = 'index', 
@@ -255,9 +264,17 @@ def correct_dois(df, doi_corrections):
         
         
 def give_IDnums(df):
+    '''Assign ID numbers to all articles in the dataframe.'''
+    
     df['ID_num'] = np.nan
-    df.loc[df['ID_num'].isnull(), 'ID_num'] = df['TI'].apply(lambda x: x[3:] ) +'::' + df.index.astype(str)
+    
+    
+    
+    df.loc[df['ID_num'].isnull(), 'ID_num'] = df['TI'].apply(
+        lambda x: x[3:] ) +'::' + df.index.astype(str)
+    
     df.loc[df['DI'].isnull() ==False, 'ID_num'] = df['DI'].dropna()
+    
     df.loc[
         ((df['DI'].isnull()) & 
          (df['SN'].isnull() == False) & 
@@ -286,7 +303,7 @@ if __name__=='__main__':
     assert df['index'].isna().sum() == 0
     print(df.shape)
     print('Assembling DataFrame of References')
-    rdf = make_rdf2(df)
+    rdf = make_rdf(df)
     
     print('Finding Citations')
     refs, doi_corrections = collect_cites(df, rdf)
@@ -307,22 +324,28 @@ if __name__=='__main__':
     refs = refs.merge(df[['ID_num']], left_on = 'citing_art', 
                       right_index = True, how = 'left')
     #refs.drop(columns = ['citing_art'], inplace= True)
-    refs = refs.rename(columns ={'ID_num_x': 'ID_num', 
-                                 'ID_num_y': 'citing_article' } 
+    refs = refs.rename(columns ={'ID_num_x': 'to', 
+                                 'ID_num_y': 'from' } 
                       )
     
+   
     
-    refs.to_csv(os.path.join('data', 'ref_matrix.csv'))
+    refs[['to', 'from']].to_csv(os.path.join('data', 'intermed_data', 'ref_matrix.csv'))
     
     missing = rdf.dropna(subset= ['DOI'])[rdf['DOI'].dropna().isin(
                         refs['ID_num'])==False]
-    missing.to_csv(os.path.join('data', 'out_sample_refs.csv'))
+    
+    missing.to_csv(os.path.join('data', 'intermed_data', 'out_sample_refs.csv'))
+    
+    
     missing['DOI'].value_counts().to_csv(os.path.join('data', 'out_sample_refs_counts.csv'))
-    df.to_csv(os.path.join('data', 'all_data_2.csv'))
+    df.to_csv(os.path.join('data', 'intermed_data', 'all_data_2.csv'))
     
     pd.concat([utils.filter_relevant(df), 
                df[df['ID_num'].isin(refs['ID_num'])]]
-              ).drop_duplicates().to_csv('all_relevant_articles.csv')
+              ).drop_duplicates().to_csv(os.path.join('data', 
+                                                      'intermed_data',
+                                                      'all_relevant_articles.csv'))
     
     
    

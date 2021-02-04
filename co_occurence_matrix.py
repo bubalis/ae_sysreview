@@ -17,7 +17,7 @@ import numpy as np
 
 
 #%%
-
+'''This script makes an author overlap matrix.'''
     
 def is_nonzero(x):
     return int(bool(x))

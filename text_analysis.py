@@ -3,6 +3,8 @@
 """
 Created on Fri Jan 29 13:38:46 2021
 
+Script for comparing text of abstracts within the dataset.
+
 @author: bdube
 """
 
@@ -29,7 +31,9 @@ import re
 
 
 def get_wordnet_pos(treebank_tag):
-
+    '''Turn a treebank tag into a wordnet pos tag.
+    Used for the WNL lemmatizer'''
+    
     if treebank_tag.startswith('J'):
         return wordnet.ADJ
     elif treebank_tag.startswith('V'):
@@ -55,20 +59,34 @@ parentheses= ['(', ')', '"', "'", ',', '.', r'\\', ]
 #%%
 ps = PorterStemmer()
 
-def prep_document(doc, Stemmer=LancasterStemmer):
+def prep_document(doc, Stemmer=PorterStemmer):
+    '''Pre-process a the document for performing word counts.'''
+    
+    
     stemmer = Stemmer()
+    #remove text after copyright:
     doc = doc.split('(C)')[0]
-    doc = ' '.join([word for word in doc.split(' ') if all([c not in '1234567890' for c in word])])
-    doc = ''.join([c for c in doc if c in string.ascii_letters+string.whitespace+'-'])
+    
+    #remove numbers:
+    doc = ' '.join([word for word in doc.split(' ') if all(
+        [c not in '1234567890' for c in word])])
+    
+    #remove symbols
+    doc = ''.join([c for c in doc if c in 
+                   string.ascii_letters+string.whitespace+'-'])
+    
+    #turn dashes into whitespace  
     doc = doc.replace('-', ' ')
+    
+    #stem all words
     return ' '.join([stemmer.stem(w) for w in doc.split(' ')])
     
-    word_pos =  nltk.pos_tag([
-        i for i in doc.split(' ') if i])
+    #word_pos =  nltk.pos_tag([
+    #    i for i in doc.split(' ') if i])
     
-    return ' '.join([
-        lemmatize(word, get_wordnet_pos(tag)) 
-           for word, tag in word_pos])
+    #return ' '.join([
+    #    lemmatize(word, get_wordnet_pos(tag)) 
+    #       for word, tag in word_pos])
     
 def prep_all_docs(corpus, Stemmer= LancasterStemmer):
     return [prep_document(doc, Stemmer) for doc in corpus]
@@ -84,12 +102,18 @@ docPrep = FunctionTransformer(prep_all_docs)
 
 
 def xform_data(corpus, stop_words):
+    '''Preprocess data, and fit it to corpus.
+    Return the transformed data and the word list'''
+    
     pipe = Pipeline([('prep', docPrep),
         ('count', CountVectorizer(stop_words = stop_words)),
                    ('tfid', TfidfTransformer())
         ]).fit(corpus)
     
-    return pipe.transform(corpus), pipe['count'].get_feature_names()
+    data = pipe.transform(corpus)
+    words = pipe['count'].get_feature_names()
+    
+    return data, words
 
 
 def test():
@@ -105,9 +129,9 @@ def test():
     stop_words+=[stemmer.stem(word) for word in stop_words]
     
     t_dir= os.path.join('data', 'toy')
-    df1 = load_data(os.path.join(t_dir, 'fem_geo.txt'))
-    df2 = load_data(os.path.join(t_dir, 'h_2_phys.txt'))
-    df3 = load_data(os.path.join(t_dir, 'viral.txt'))
+    df1 = load_test_data(os.path.join(t_dir, 'fem_geo.txt'))
+    df2 = load_test_data(os.path.join(t_dir, 'h_2_phys.txt'))
+    df3 = load_test_data(os.path.join(t_dir, 'viral.txt'))
     corpus = df1['ID'].tolist()+ df2['ID'].tolist() + df3['ID'].tolist()
     #corpus = [prep_document(d) for d in corpus]
     splits = [df1.shape[0], 
@@ -117,11 +141,11 @@ def test():
    
    
     data, t = xform_data(corpus, stop_words)
-    agg_arrays = break_into_categories(data.toarray(), splits)
+    agg_arrays = make_category_mean_arr(data.toarray(), splits)
     pca =PCA(n_components =2)
     pca.fit(agg_arrays)
     a = data.toarray()
-    arrays = break_into_categories(data.toarray(), splits)
+    arrays = make_category_mean_arr(data.toarray(), splits)
     pca =PCA(n_components =2)
     
     pca.fit(arrays)
@@ -129,7 +153,7 @@ def test():
     print(pca.explained_variance_ratio_)
     print(pca.singular_values_)
     
-    arrays2 = break_into_categories(data.toarray(), splits, 
+    arrays2 = make_category_mean_arr(data.toarray(), splits, 
                                     test=True)
     
     pca2 =PCA(n_components =2)
@@ -177,7 +201,8 @@ def test():
     plt.show()
    
     
-def load_data(path):
+def load_test_data(path):
+    '''Load in data for test.'''
     df = pd.read_csv(path, sep= '\t')
     df['ID'] = df['ID'].replace('', np.nan)
     return df.dropna(subset=['ID'])
@@ -188,9 +213,13 @@ def load_data(path):
 
 
 
-def break_into_categories(a, splits, test=False):
+def make_category_mean_arr(a, splits, test=False):
+    '''Pass an 2d-array and splits idicies (row numbers). 
+    Return an array of category means for each column.'''
+    #Random shuffle is used to test: category means should be meaningless
     if test:
         np.random.shuffle(a)
+    
     arrays = []
     s = [0]+splits
     for i in range(len(splits)):
@@ -202,30 +231,34 @@ def break_into_categories(a, splits, test=False):
 
 #%%
 def run(indf, data_col, topics, stemmer=LancasterStemmer(), n_pca_components = 2,
-        fit_to_all = False, drop_last = False):
+        fit_to_all = False, 
+        extra_corpus = False):
     
     indf=indf[(indf[topics].sum(axis=1)==1) | (indf[topics].sum(axis=1)==0)] # Only abstracts assigned to exactly 1 keyword
     
-    corpus, splits = load_text_data(indf, data_col, topics, whole_dataset = drop_last)
+    corpus, splits = load_text_data(indf, data_col, 
+                                    topics, whole_dataset = extra_corpus)
     del indf
+    
+    
     stop_words = set_stopwords(topics, stemmer)
     
     data, words = xform_data(corpus, stop_words)
-    #agg_arrays = break_into_categories(data.toarray(), splits)
+    #agg_arrays = make_category_mean_arr(data.toarray(), splits)
     
-    if drop_last:
+    if extra_corpus:
         pca =TruncatedSVD(n_components = n_pca_components)
         pca.fit(data)
         name = 'fit_to_all'
         data = data[:splits[-2]]
         _ = splits.pop()
-        agg_arrays = break_into_categories(data, splits)
+        agg_arrays = make_category_mean_arr(data, splits)
         data = data.toarray()
         print(f'Shape of data: {data.shape}')
     else:
         pca =PCA(n_components = n_pca_components)
         data = data.toarray()   
-        agg_arrays = break_into_categories(data, splits)
+        agg_arrays = make_category_mean_arr(data, splits)
         if fit_to_all:
             pca.fit(data)
             name = 'fit_to_all'
@@ -275,7 +308,9 @@ def make_df(a, agg_arrays, pca, topics, splits):
 
         
     try:
-        df = pd.DataFrame(cosine_similarity(a, agg_arrays), columns = [f'sim_score_{t}' for t in topics])
+        df = pd.DataFrame(cosine_similarity(a, agg_arrays), 
+                          columns = [f'sim_score_{t}' for t in topics])
+        
         #for i in range(len(topics)):
             #results.append(np.apply_along_axis(cosine_sim, 1, a, np.array(agg_arrays[i])[0]))
         
@@ -394,12 +429,12 @@ def avg_cosine_sim(a, splits):
         out.append(row)
 
 #%%
-def load_from_df(path, drop_last):
+def load_from_df(path, extra_corpus):
     '''Load in a dataframe from path.'''
     df = pd.read_csv(path)
     print(df.shape)
     df = utils.add_topic_cols(df)
-    if not drop_last:
+    if not extra_corpus:
         df = df[df['any_topic'].astype(bool)] #filter to only relevant data points
     print(df.shape)
     return df
@@ -408,14 +443,25 @@ def load_from_df(path, drop_last):
 
 word_data_dir = os.path.join('data', 'important_words')
 
-def main(path, fit_to_all, drop_last, 
+def main(data_path, fit_to_all, extra_corpus, 
          n_pca_components =6):
-    if drop_last:
+    '''Run all text analysis.
+    args: data_path: path to csv file of corpus.
+    
+    fit_to_all: (bool) does the decomposition algorithm fit to all abstracts, 
+    or just the aggregates?
+    
+    extra_corpus: (bool) is a larger corpus, not to be analyzed, loaded, 
+    to fit decomposition algorithm and to identify word counts?
+    
+    n_pca_components: (int) how many components to decompose into?'''
+    
+    if extra_corpus:
         name = 'based_on_all_data'
     else:
         name = 'just_sample'
     
-    df = load_from_df(path, drop_last)
+    df = load_from_df(data_path, extra_corpus)
     topics = list(utils.load_topics().keys())
     #out_df, pca, agg_arrays, words = run(df, 'AB', topics)
     #compare_matrix = pairwise_compare_on_avg(out_df, topics)
@@ -429,7 +475,7 @@ def main(path, fit_to_all, drop_last,
     out_df, pca, agg_arrays, words = run(df, 'AB', topics, 
                                          fit_to_all=fit_to_all, 
                                          n_pca_components = n_pca_components, 
-                                         drop_last = drop_last)
+                                         extra_corpus = extra_corpus)
     
     compare_matrix = pairwise_compare_on_avg(out_df, topics)
     sns.heatmap(compare_matrix, cmap= 'winter_r')
@@ -488,12 +534,16 @@ if __name__=='__main__':
     
     if not os.path.exists(word_data_dir):
        os.makedirs(word_data_dir)
-    path = os.path.join('all_relevant_articles.csv')
+       
+    path = os.path.join('data', 'intermed_data',  'all_data_2.csv')
     fit_to_all = True
-    drop_last = True
-    _ = main(path, fit_to_all, drop_last, n_pca_components = 8)
+    extra_corpus = False
+    _ = main(path, fit_to_all, extra_corpus, n_pca_components = 8)
     del _
-    path2 = os.path.join('data', 'all_data_2.csv')
-    pca, out_df, word_list = main(path2, fit_to_all=True, drop_last=False, n_pca_components = 6)
+    
+    path2 = os.path.join('data', 'intermed_data','all_relevant_articles.csv')
+    
+    pca, out_df, word_list = main(path2, fit_to_all=True, 
+                                  extra_corpus=True, n_pca_components = 6)
 
 #%%
