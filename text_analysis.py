@@ -29,6 +29,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 import re
 
 
+topic_abbrvs = ['EI', 'CA', 'SI', 'CS', 'SA', 'AE', "EA", 'AA', 
+                "PC", "IPM", 'BD', 'RA', 'OA']
 
 def get_wordnet_pos(treebank_tag):
     '''Turn a treebank tag into a wordnet pos tag.
@@ -81,15 +83,12 @@ def prep_document(doc, Stemmer=PorterStemmer):
     #stem all words
     return ' '.join([stemmer.stem(w) for w in doc.split(' ')])
     
-    #word_pos =  nltk.pos_tag([
-    #    i for i in doc.split(' ') if i])
-    
-    #return ' '.join([
-    #    lemmatize(word, get_wordnet_pos(tag)) 
-    #       for word, tag in word_pos])
+
     
 def prep_all_docs(corpus, Stemmer= LancasterStemmer):
     return [prep_document(doc, Stemmer) for doc in corpus]
+
+
 
 docPrep = FunctionTransformer(prep_all_docs)
 
@@ -478,11 +477,17 @@ def main(data_path, fit_to_all, extra_corpus,
                                          extra_corpus = extra_corpus)
     
     compare_matrix = pairwise_compare_on_avg(out_df, topics)
-    sns.heatmap(compare_matrix, cmap= 'winter_r')
+    ax = sns.heatmap(compare_matrix, cmap= 'winter_r')
+    ax.set_xticklabels(topic_abbrvs)
+    plt.xticks(rotation=90)
+    ax.set_yticklabels(topic_abbrvs[::-1])
+    plt.yticks(rotation=90)
     plt.savefig(os.path.join('figures', f'textual_heatmap_{name}.png'))
     plt.show()
     compare_matrix2 = cosine_similarity(agg_arrays)
-    sns.heatmap(compare_matrix2, cmap= 'winter_r')
+    ax = sns.heatmap(compare_matrix2, cmap= 'winter_r')
+    ax.set_xticklabels(topic_abbrvs)
+    ax.set_yticklabels(topic_abbrvs[::-1])
     plt.savefig(os.path.join('figures', f'textual_heatmap_aggregate_{name}.png'))
     plt.show()
    
@@ -541,9 +546,9 @@ if __name__=='__main__':
     _ = main(path, fit_to_all, extra_corpus, n_pca_components = 8)
     del _
     
-    path2 = os.path.join('data', 'intermed_data','all_relevant_articles.csv')
+    #path2 = os.path.join('data', 'intermed_data','all_relevant_articles.csv')
     
-    pca, out_df, word_list = main(path2, fit_to_all=True, 
-                                  extra_corpus=True, n_pca_components = 6)
+    #pca, out_df, word_list = main(path2, fit_to_all=True, 
+    #                             extra_corpus=True, n_pca_components = 6)
 
 #%%

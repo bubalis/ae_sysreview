@@ -18,6 +18,10 @@ import numpy as np
 topics= utils.load_topics()
 
 def parse_ref(string):
+    '''Parser for reference sub-strings.
+    Returns a pd series with labels: 
+        ['aut', 'year', 'journ', 'DOI', 'vol', 'page']'''
+    
     keys=['aut', 'year', 'journ', 'DOI', 'vol', 'page']
     pieces = string.split(',')
     dic = {key: None for key in keys}
@@ -47,34 +51,11 @@ def parse_ref(string):
     
     return pd.Series(dic) 
 
-def get_refs(data):
-    '''Get all references from a row reference data column'''
-    
-    #correction for DOIs with a ';' in them:
-    if '[' in data:
-        
-        problems = re.findall(r'\[.+?\]', data)
-        for prob in problems:
-            data.replace(prob, prob.replace(';', '*****'))
-        return [parse_ref(ref.replace('*****', ';')) for ref in data.split('; ')]
-   
-    try:
-        return [parse_ref(ref) for ref in data.split('; ')]
-    except:
-        print(data)
-        raise
-        
 
-def ref_df_maker(row):
-    '''Complete the dict for parsing ref data '''
-    
-    refs= get_refs(row['CR'])
-    for ref in refs:
-        ref.update({'citing_art': row.index})
-    return refs
-
+        
 def make_ref_list(string):
-    '''Convert string in list of references.'''
+    '''Convert string into a list of reference strings.
+    '''
     
     #correction for dealing with dois with ';' in the them:
     if '[' in string:
@@ -86,6 +67,8 @@ def make_ref_list(string):
 
 
 def make_rdf(df):
+    '''Make a dataframe of all relevant articles in the dataframe.
+    columns : ['aut', 'year', 'journ', 'DOI', 'vol', 'page', 'citing article' and 'index']'''
     data= utils.filter_relevant(df).dropna(subset=['CR'])
     data = data[['CR']]
     data['CR'] = data["CR"].apply(make_ref_list)
@@ -97,18 +80,6 @@ def make_rdf(df):
     data['index'] = data.index
     return data
 
-def make_rdf_old(df):
-    '''Make a dataframe of all cited references in dataset.'''
-    
-    data= utils.filter_relevant(df).dropna(subset=['CR'])
-    data = data[['CR']]
-    
-    return pd.DataFrame(
-        utils.list_flattener(
-        utils.parallelize_on_rows(
-           data, ref_df_maker, num_of_processes=3).tolist()
-        )
-        )
 
 f_letter =re.compile(r'^.+?\,\s\w')
 def if_match(regex, x):
@@ -122,6 +93,7 @@ f_letter_no_com =re.compile(r'^.+?\s\w')
 
 
 def aut_ln_fi(stri):
+    '''Get the lastname, first-initial combo for an author.'''
     if not stri:
         return None
     res = if_match(f_letter, stri)
@@ -130,6 +102,8 @@ def aut_ln_fi(stri):
     return None
 
 def ref_aut_ln_fi(stri):
+    '''Get the lastname, first-initial combo for an author, correcting
+    for common formatting snafu. '''
     res = if_match(f_letter_no_com, stri)
     if res:
         return res.replace(' ', ', ').lower()
@@ -153,8 +127,11 @@ def format_article_idnum(df):
     information in the dataframe.'''
     
     df['ID_num'] = None
+    
     df.loc[df['ID_num'].isnull(), 'ID_num'] = df['TI'].apply(lambda x: x[3:] ) +'::' + df.index.astype(str)
+    
     df.loc[df['DI'].isnull() ==False, 'ID_num'] = df['DI'].dropna()
+    
     df.loc[
         ((df['DI'].isnull()) & 
          (df['SN'].isnull() == False) & 
@@ -167,8 +144,12 @@ def format_article_idnum(df):
     
     df.loc[df['ID_num'].isnull(), 'ID_num'] = df['TI'].apply(lambda x: x[3:] ) +'::' + df.index.astype(str)
     
+    return df
     #%%
 def collect_cites(df, rdf):
+    '''Match citations in the rdf to articles in the main dataframe.
+    Returns a dataframe of references found, and DOI corrections - dois to add to
+    the main dataframe that are missing in that article's metadata. '''
     doi_corrections = []
     
     rdf['DOI'] = rdf["DOI"].apply(lower_if)
@@ -176,6 +157,7 @@ def collect_cites(df, rdf):
     df['DI'] = df['DI'].apply(lower_if)
     
     match_sets =[]
+    
     #perfect DOI matches:
     matches = df.dropna(subset=['DI']).merge(
                 rdf, left_on = 'DI', 
@@ -208,8 +190,10 @@ def collect_cites(df, rdf):
         
         m.dropna(subset = ['ln_fi', 'journ', 'year'], how ='any',
                  inplace= True)
-        #subset these matches for where the citation volume or page number =
-        #that of the possible article match, or both of these are missing. 
+        
+        #subset these matches for where the citation volume or page number 
+        #either are the same as that of the possible article match
+        # or both of these are missing. 
         m = m[((m['VL'] == m['vol']) | (m['vol'].isnull()))  
               & 
               ((m['BP'] == m['page']) | (m['page'].isnull()))
@@ -219,6 +203,7 @@ def collect_cites(df, rdf):
         assert 'index' not in m.columns
         try:
             if ((m['DOI'].isnull()) & (m['DI'].isnull()==False)).sum() > 0:
+               
                 m.loc[(m['DOI'].isnull()) & (m['DI'].isnull()==False), 
                       'DOI'] = m['DI'].dropna()
                 
@@ -237,12 +222,17 @@ def collect_cites(df, rdf):
             raise
     try:
         assert all ([p['index_x'].isin(df['index']).all() for p in match_sets])
+        
         refs = pd.concat(match_sets)
+        
         assert refs['index_x'].isin(df['index']).all()
     except:
         globals().update(locals())
         raise
+    
     doi_corrections = pd.concat(doi_corrections).drop_duplicates()
+    
+    
     return refs, doi_corrections
 #%%
 def correct_dois(df, doi_corrections):
@@ -285,7 +275,7 @@ def give_IDnums(df):
     df.loc[(df['ID_num'].isnull()) & (df['UT'].isnull()==False), 'ID_num'] = df[(df['ID_num'].isnull()) & 
                                                 (df['UT'].isnull() ==False)]['UT']
     
-    df.loc[df['ID_num'].isnull(), 'ID_num'] = df['TI'].apply(lambda x: x[3:] ) +'::' + df.index.astype(str)
+    df.loc[df['ID_num'].isnull(), 'ID_num'] = df['TI'].apply(lambda x: x[:4] ) +'::' + df.index.astype(str)
     return df
 
 
@@ -324,18 +314,26 @@ if __name__=='__main__':
     refs = refs.merge(df[['ID_num']], left_on = 'citing_art', 
                       right_index = True, how = 'left')
     #refs.drop(columns = ['citing_art'], inplace= True)
-    refs = refs.rename(columns ={'ID_num_x': 'to', 
-                                 'ID_num_y': 'from' } 
+    refs = refs.rename(columns ={'ID_num_x': 'ID_num', 
+                                 'ID_num_y': 'citing_article' } 
                       )
     
    
     
-    refs[['to', 'from']].to_csv(os.path.join('data', 'intermed_data', 'ref_matrix.csv'))
+    refs[['ID_num', 'citing_article']].rename(
+        columns =
+        {'ID_num': 'to',
+         'citing_article' : 'from'}
+        ).to_csv(os.path.join('data', 
+                              'intermed_data', 
+                              'ref_matrix.csv'))
     
     missing = rdf.dropna(subset= ['DOI'])[rdf['DOI'].dropna().isin(
                         refs['ID_num'])==False]
     
-    missing.to_csv(os.path.join('data', 'intermed_data', 'out_sample_refs.csv'))
+    #save list of refs outside of sample
+    missing.to_csv(os.path.join(
+        'data', 'intermed_data', 'out_sample_refs.csv'))
     
     
     missing['DOI'].value_counts().to_csv(os.path.join('data', 'out_sample_refs_counts.csv'))
