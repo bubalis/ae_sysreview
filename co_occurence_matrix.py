@@ -32,11 +32,13 @@ def coocc_matrix(df, columns, threshold = 1):
         coocc=matrix.T @ matrix
     
     else: 
-        coocc = matrix.apply(lambda x: (x>=1).astype(int)).T @ matrix.apply(lambda x: (x>=threshold).astype(int))
+        matrix1 = matrix.apply(lambda x: (x>1).astype(int)).T
+        matrix2 = matrix.apply(lambda x: (x>=threshold).astype(int))
+        coocc =  matrix1 @ matrix2
     print(coocc)
     #coocc = coocc / coocc.sum(axis=1)
     for c in coocc.columns:
-        coocc[c]=coocc[c]/matrix[c].sum() #### creating a % based matrix 
+        coocc[c]=coocc[c]/matrix2[c].sum() #### creating a % based matrix 
         #(% of column overlap of row )        
     return coocc.astype(float), matrix
 
@@ -89,7 +91,7 @@ def make_cocc_plot(coocc, path):
 
 test=False
 if __name__=='__main__':
-    path = os.path.join('data', 'expanded_authors.csv')
+    path = os.path.join('data', 'intermed_data', 'expanded_authors.csv')
     if test:
        df=pd.read_csv(path).head(10000)
     else:
