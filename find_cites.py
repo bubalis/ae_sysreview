@@ -181,7 +181,7 @@ def collect_cites(df, rdf):
     
     #get matches where ln_fi of first author, journal name and year are all same
     #try with 4 different columns where the journal name might be
-    for journ_col in ['J9', 'SO', 'JI', 'SO', 'PU']:
+    for journ_col in ['J9', 'SO', 'JI', 'PU']:
         
         m = df.dropna(subset=['ln_fi']).merge(rdf, 
                     left_on =   ['ln_fi', journ_col, 'PY'], 
@@ -201,29 +201,29 @@ def collect_cites(df, rdf):
         
         print(f'{m.shape[0]} matches found')
         assert 'index' not in m.columns
-        try:
-            if ((m['DOI'].isnull()) & (m['DI'].isnull()==False)).sum() > 0:
-               
-                m.loc[(m['DOI'].isnull()) & (m['DI'].isnull()==False), 
-                      'DOI'] = m['DI'].dropna()
-                
-                
-                doi_corrections.append(m.loc[(m["DI"].isnull()) & 
-                                             (m['DOI'].isnull()==False),['DOI', 'index_x']])
+    
+        if ((m['DOI'].isnull()) & (m['DI'].isnull()==False)).sum() > 0:
+           
+            m.loc[(m['DOI'].isnull()) & (m['DI'].isnull()==False), 
+                  'DOI'] = m['DI'].dropna()
             
-            assert m['index_x'].isna().sum()== 0
-            assert m['index_x'].isin(df['index']).all()
-            
-            match_sets.append(m[['DOI', 'DI', 'citing_art', 
-                                 'index_x', 'index_y']])
-        except:
-            globals().update(locals())
-            assert 'm' in globals()
-            raise
+            #add 
+            doi_corrections.append(m.loc[(m["DI"].isnull()) & 
+                                         (m['DOI'].isnull()==False),
+                                         ['DOI', 'index_x']])
+        else:
+            print("All cites have a valid DOI")
+        
+        assert m['index_x'].isna().sum()== 0
+        assert m['index_x'].isin(df['index']).all()
+        
+        match_sets.append(m[['DOI', 'DI', 'citing_art', 
+                             'index_x', 'index_y']])
+        
     try:
         assert all ([p['index_x'].isin(df['index']).all() for p in match_sets])
         
-        refs = pd.concat(match_sets)
+        refs = pd.concat(match_sets).drop_duplicates()
         
         assert refs['index_x'].isin(df['index']).all()
     except:
@@ -259,23 +259,26 @@ def give_IDnums(df):
     df['ID_num'] = np.nan
     
     
-    
-    df.loc[df['ID_num'].isnull(), 'ID_num'] = df['TI'].apply(
-        lambda x: x[3:] ) +'::' + df.index.astype(str)
-    
     df.loc[df['DI'].isnull() ==False, 'ID_num'] = df['DI'].dropna()
+    
     
     df.loc[
         ((df['DI'].isnull()) & 
          (df['SN'].isnull() == False) & 
          (df['PT'].isin(['B', 'S']))), 'ID_num'
-        ] = 'book chap ' + df['SN'] + ' // ' +df['index'].astype(str)
+        ] = 'book_chap ' + df['SN'] + ' // ' +df['index'].astype(str)
     
   
     df.loc[(df['ID_num'].isnull()) & (df['UT'].isnull()==False), 'ID_num'] = df[(df['ID_num'].isnull()) & 
                                                 (df['UT'].isnull() ==False)]['UT']
     
-    df.loc[df['ID_num'].isnull(), 'ID_num'] = df['TI'].apply(lambda x: x[:4] ) +'::' + df.index.astype(str)
+    left =  df.loc[df['ID_num'].isnull()]
+    df.loc[df['ID_num'].isnull(), 'ID_num'] = left['TI'].apply(lambda x: x[:4] ) +'::' + left.index.astype(str)
+    
+    
+    
+
+    
     return df
 
 

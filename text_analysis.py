@@ -30,7 +30,9 @@ import re
 
 
 topic_abbrvs = ['EI', 'CA', 'SI', 'CS', 'SA', 'AE', "EA", 'AA', 
-                "PC", "IPM", 'BD', 'RA', 'OA']
+                "PC", 
+                #"IPM", 
+                'BD', 'RA', 'OA']
 
 def get_wordnet_pos(treebank_tag):
     '''Turn a treebank tag into a wordnet pos tag.
@@ -443,7 +445,7 @@ def load_from_df(path, extra_corpus):
 word_data_dir = os.path.join('data', 'important_words')
 
 def main(data_path, fit_to_all, extra_corpus, 
-         n_pca_components =6):
+         n_pca_components =2):
     '''Run all text analysis.
     args: data_path: path to csv file of corpus.
     
@@ -480,14 +482,14 @@ def main(data_path, fit_to_all, extra_corpus,
     ax = sns.heatmap(compare_matrix, cmap= 'winter_r')
     ax.set_xticklabels(topic_abbrvs)
     plt.xticks(rotation=90)
-    ax.set_yticklabels(topic_abbrvs[::-1])
+    ax.set_yticklabels(topic_abbrvs)
     plt.yticks(rotation=90)
     plt.savefig(os.path.join('figures', f'textual_heatmap_{name}.png'))
     plt.show()
     compare_matrix2 = cosine_similarity(agg_arrays)
     ax = sns.heatmap(compare_matrix2, cmap= 'winter_r')
     ax.set_xticklabels(topic_abbrvs)
-    ax.set_yticklabels(topic_abbrvs[::-1])
+    ax.set_yticklabels(topic_abbrvs)
     plt.savefig(os.path.join('figures', f'textual_heatmap_aggregate_{name}.png'))
     plt.show()
    
@@ -543,7 +545,7 @@ if __name__=='__main__':
     path = os.path.join('data', 'intermed_data',  'all_data_2.csv')
     fit_to_all = True
     extra_corpus = False
-    _ = main(path, fit_to_all, extra_corpus, n_pca_components = 8)
+    _ = main(path, fit_to_all, extra_corpus, n_pca_components = 2)
     del _
     
     #path2 = os.path.join('data', 'intermed_data','all_relevant_articles.csv')
