@@ -11,8 +11,8 @@ import seaborn as sns
 import matplotlib as mpl
 import os
 import utils
-from multiprocessing import  Pool
-from functools import partial
+#from multiprocessing import  Pool
+#from functools import partial
 import numpy as np
 
 
@@ -30,20 +30,27 @@ def coocc_matrix(df, columns, threshold = 1):
     if threshold == 1:
         matrix = matrix.apply(lambda x: (x>0).astype(int)) 
         coocc=matrix.T @ matrix
-    
+        for c in coocc.columns:
+            coocc[c]=coocc[c]/matrix[c].sum()
     else: 
         matrix1 = matrix.apply(lambda x: (x>1).astype(int)).T
         matrix2 = matrix.apply(lambda x: (x>=threshold).astype(int))
         coocc =  matrix1 @ matrix2
-    print(coocc)
+    
     #coocc = coocc / coocc.sum(axis=1)
-    for c in coocc.columns:
-        coocc[c]=coocc[c]/matrix2[c].sum() #### creating a % based matrix 
+        for c in coocc.columns:
+            coocc[c]=coocc[c]/matrix2[c].sum() #### creating a % based matrix 
         #(% of column overlap of row )        
     return coocc.astype(float), matrix
 
 
-
+def weighted_cocc_matrix(df, columns):
+    matrix = df[columns]
+    coocc = matrix.astype(bool).astype(int).T @ matrix
+    for c in coocc.columns:
+        coocc[c]=coocc[c]/matrix[c].sum()
+ 
+    return coocc.astype(float), matrix
 
 
 
@@ -73,6 +80,12 @@ def make_author_df(df):
     aut_df=aut_df.merge(counts, left_index=True, right_index=True)
     
     aut_df.rename({'author_id': 'num_pubs'}, inplace=True)
+    author_name_data = pd.read_csv(os.path.join('data', 
+                                                'intermed_data', 'all_author_data.csv'))
+    author_name_data = author_name_data.drop_duplicates(subset = ['author_id'])
+    aut_df = aut_df.merge(author_name_data[['author_id', 'longer_name']],
+                          left_index = True, right_on = 'author_id')
+    aut_df.drop(columns = ['author_id_y','author_id_x'], inplace = True)
     return aut_df.reset_index()
     
 
@@ -93,7 +106,7 @@ test=False
 if __name__=='__main__':
     path = os.path.join('data', 'intermed_data', 'expanded_authors.csv')
     if test:
-       df=pd.read_csv(path).head(10000)
+       df=pd.read_csv(path, nrows = 50000)
     else:
        df=pd.read_csv(path)
     topics=utils.load_topics()           
@@ -109,7 +122,7 @@ if __name__=='__main__':
     
     
     
-    aut_df_path=os.path.join('data', 'author_data.csv')
+    aut_df_path=os.path.join('data','intermed_data', 'author_pub_data.csv')
     if not os.path.exists(aut_df_path):
         print('Making Author DataFrame')
         author_df=make_author_df(df)  
@@ -125,12 +138,14 @@ if __name__=='__main__':
     
 
     #%%
-    coocc1, matrix = coocc_matrix(author_df, columns)
-    make_cocc_plot(coocc1, os.path.join('figures', 'corr_pubs.png'))
+    coocc1, matrix = weighted_cocc_matrix(author_df, columns)
+    make_cocc_plot(coocc1, os.path.join('figures', 'corr_pubs_weighted.png'))
+    coocc1.to_csv(os.path.join('data', 'matrixes', 'coor_pubs_weighted.csv'))
     
+    coocc2, _ = coocc_matrix(author_df, columns)
+    make_cocc_plot(coocc2, os.path.join('figures', 'corr_pubs_author.png'))    
+    coocc2.to_csv(os.path.join('data', 'matrixes', 'coor_pubs_author.csv'))
     
-    coocc2, _ = coocc_matrix(author_df, columns, 2)
-    make_cocc_plot(coocc2, os.path.join('figures', 'corr_pubs2.png'))    
     
     #%%
     if not os.path.exists(aut_df_path):
