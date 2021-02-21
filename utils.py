@@ -11,6 +11,7 @@ from multiprocessing import  Pool
 from functools import partial
 import pandas as pd
 import numpy as np
+import re
 
 def parallelize(data, func, num_of_processes=8):
     '''Function for paralellizing any function on a dataframe.
@@ -24,7 +25,11 @@ def parallelize(data, func, num_of_processes=8):
     return data
 
 
-
+def filter_cols(df, regex):
+    return df[[c for c in df.columns if re.search(regex, c)]]
+#%%
+def filter_series(series, regex):
+        return series[[c for c in series.index if re.search(regex, c)]]
 
 
 

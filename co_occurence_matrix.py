@@ -6,53 +6,14 @@ Created on Thu Mar 12 10:59:10 2020
 """
 
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import matplotlib as mpl
 import os
 import utils
-#from multiprocessing import  Pool
-#from functools import partial
-import numpy as np
-
+import matrix_utils
 
 #%%
 '''This script makes an author overlap matrix.'''
     
-def is_nonzero(x):
-    return int(bool(x))
-
-def coocc_matrix(df, columns, threshold = 1):
-    '''Make a coocurance matrix of the columns passed.'''
-    
-    matrix=df[columns]
-
-    if threshold == 1:
-        matrix = matrix.apply(lambda x: (x>0).astype(int)) 
-        coocc=matrix.T @ matrix
-        for c in coocc.columns:
-            coocc[c]=coocc[c]/matrix[c].sum()
-    else: 
-        matrix1 = matrix.apply(lambda x: (x>1).astype(int)).T
-        matrix2 = matrix.apply(lambda x: (x>=threshold).astype(int))
-        coocc =  matrix1 @ matrix2
-    
-    #coocc = coocc / coocc.sum(axis=1)
-        for c in coocc.columns:
-            coocc[c]=coocc[c]/matrix2[c].sum() #### creating a % based matrix 
-        #(% of column overlap of row )        
-    return coocc.astype(float), matrix
-
-
-def weighted_cocc_matrix(df, columns):
-    matrix = df[columns]
-    coocc = matrix.astype(bool).astype(int).T @ matrix
-    for c in coocc.columns:
-        coocc[c]=coocc[c]/matrix[c].sum()
- 
-    return coocc.astype(float), matrix
-
-
+topics=utils.load_topics()
 
 def aut_data_retriever(name, df, columns):
     ''' '''
@@ -61,9 +22,7 @@ def aut_data_retriever(name, df, columns):
     return sdf.loc[:, columns].sum()
     
 
-topics=utils.load_topics() 
-
-
+ 
 def make_author_df(df):
     '''Return a dictionary summarizing author data.'''
     print('Collecting Authors')
@@ -89,15 +48,6 @@ def make_author_df(df):
     return aut_df.reset_index()
     
 
-def make_cocc_plot(coocc, path):    
-    coocc.columns=[column.replace('num_pubs_', '') for column in coocc.columns]
-    coocc.index=[label.replace('num_pubs_', '') for label in coocc.index]
-    coocc = coocc.replace({1:np.nan})
-    vmax = coocc.max().max()
-    ax = sns.heatmap(data=coocc, vmax=vmax, cmap=mpl.cm.cividis_r, linecolor='white',linewidths=1 )
-    #ax.xlabels = [l.replace('num_pubs_', '') for  in coocc.columns] 
-    plt.savefig(path, bbox_inches='tight')
-    plt.show(block = False) 
 
 
 
@@ -138,12 +88,11 @@ if __name__=='__main__':
     
 
     #%%
-    coocc1, matrix = weighted_cocc_matrix(author_df, columns)
-    make_cocc_plot(coocc1, os.path.join('figures', 'corr_pubs_weighted.png'))
+    coocc1, matrix = matrix_utils.weighted_cocc_matrix(author_df, columns)
+    matrix_utils.cocc_plot(coocc1, os.path.join('figures', 'corr_pubs_weighted.png'))
     coocc1.to_csv(os.path.join('data', 'matrixes', 'coor_pubs_weighted.csv'))
-    
-    coocc2, _ = coocc_matrix(author_df, columns)
-    make_cocc_plot(coocc2, os.path.join('figures', 'corr_pubs_author.png'))    
+    coocc2, _ = matrix_utils.coocc_matrix(author_df, columns)
+    matrix_utils.cocc_plot(coocc2, os.path.join('figures', 'corr_pubs_author.png'))    
     coocc2.to_csv(os.path.join('data', 'matrixes', 'coor_pubs_author.csv'))
     
     

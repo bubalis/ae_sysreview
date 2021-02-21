@@ -7,33 +7,19 @@ Created on Mon Feb  8 16:01:16 2021
 """
 import pandas as pd
 import os
-from itertools import permutations, count, takewhile
+from itertools import permutations
 import utils
-from operator import itemgetter
+
 from functools import partial
 import networkx as nx
 import numpy as np
 import seaborn as sns
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-import re
 from author_work import try_merge
 from networkx.algorithms import community
+import matrix_utils
 
-
-def nan_identity(n):
-    '''Make an n-by-n matrix with nan values on the diagonal.'''
-    a = (np.identity(12)-1)*-1
-    return np.where(a==0, np.nan, a)
-
-def filter_cols(df, regex):
-    return df[[c for c in df.columns if re.search(regex, c)]]
-#%%
-def filter_series(series, regex):
-        return series[[c for c in series.index if re.search(regex, c)]]
-
-def check_keep(row):
-        return ((filter_series(row, 'num_pubs_[\w_\s]+_source').to_numpy()*filter_series(row, 'num_pubs_[\w_\s]+_target').to_numpy())==0).all()
 
 
 
@@ -70,31 +56,14 @@ for topic in topics:
 '''
 
 
-def edge_df(edges, aut_pubs):
+def edge_df(edges, aut_pubs, id_col= 'author_id'):
     '''Convert a pandas edgelist into a dataframe with author information for 
     source and targe'''
     edges['edge_index'] = edges.index
-    edges = edges.merge(aut_pubs, left_on = 'source', right_on = 'author_id')
-    edges = try_merge(edges, aut_pubs, left_on = 'target', right_on = 'author_id', suffixes = ['_source', '_target'])
+    edges = edges.merge(aut_pubs, left_on = 'source', right_on = id_col)
+    edges = try_merge(edges, aut_pubs, left_on = 'target', right_on = id_col, suffixes = ['_source', '_target'])
     return edges
 
-
-
-def make_coocc_autcollab(edges, topics):
-    out_data = [] 
-    for topic in topics:
-        sub1 = edges[edges[f'num_pubs_{topic}_source']]
-        sub2 = edges[edges[f'num_pubs_{topic}_target']]
-        sub1 = sub1[utils.parallelize_on_rows(sub1, check_keep)]
-        sub2 = sub2[utils.parallelize_on_rows(sub2, check_keep)]
-        data = pd.concat(
-            [filter_cols(sub1, 'num_pubs_[\w_\s]+_target').rename(columns = {c: c.replace('_target', '') for c in sub1.columns}), 
-             filter_cols(sub2, 'num_pubs_[\w_\s]+_source').rename(columns = {c: c.replace('_source', '') for c in sub2.columns})]
-            )
-        data.rename(columns = {c:c.replace('num_pubs_', '') for c in data.columns }, inplace = True)
-        to_append = pd.Series(index = topics)
-        out_data.append(data.mean())
-    return out_data
 
 
 
@@ -117,6 +86,29 @@ def set_degrees(G):
     return G
 #%%
 
+def extract_subgraphs(G, save_name):
+    #if nx.is_directed(G):
+    #    G = nx.to_undirected(G)
+    sub_graphs = []
+    sub_graph_nodes = list(nx.connected_components(G))
+    
+    print(len(list(sub_graph_nodes)))
+    
+    for nodes in sub_graph_nodes:
+        print(len(nodes))
+        sub_graphs.append(G.subgraph(nodes))
+    sub_graphs.sort(key = lambda x: len(x.nodes()))    
+    main_graph = sub_graphs.pop()
+    sub_graph_nodes.sort(key = len)
+    communities = community.greedy_modularity_communities(main_graph)
+    with open(os.path.join('data', save_name), 'w+') as f:
+        for line in [list(c) for c in communities]:
+            print('\t'.join(line)+'\n', file = f)
+        print('sub graphs:\n', file =f )
+        for sg in sub_graph_nodes:
+            print('\t'.join(sg)+'\n', file = f)
+    return communities
+    
 if __name__ == '__main__':
     
     adf = pd.read_csv(os.path.join('data', 'intermed_data', 'expanded_authors.csv'))
@@ -155,34 +147,29 @@ if __name__ == '__main__':
     
     
     del name_combos
-    sub_graphs = []
-    sub_graph_nodes = list(nx.connected_components(G))
-    
-    print(len(list(sub_graph_nodes)))
-    
-    for nodes in sub_graph_nodes:
-        print(len(nodes))
-        sub_graphs.append(G.subgraph(nodes))
-        
-    main_graph = sorted(sub_graphs, key = lambda x: len(x.nodes()))[-1]
-    communities = community.greedy_modularity_communities(main_graph)
+    communities = extract_subgraphs(G, 'author_collab_coms_greedy_mod.txt')
     #%%
-    with open(os.path.join('data', 'author_collab_coms_greedy_mod.txt'), 'w+') as f:
-        for line in [list(c) for c in communities]:
-            print('\t'.join(line)+'\n', file = f)
-    #%%
+    
+    '''
     com_list=[]
     comp = community.girvan_newman(main_graph)
     limited = takewhile(lambda c: len(c) <= 100, comp)
+    i = 0
     for comm_set in limited:
+        i+=1
         com_list.append(comm_set)
+        print(f'completed set {i} of girvan_newman')
+    
+    with open(os.path.join('data', 'author_collab_coms_girvan.txt'), 'w+') as f:
+        for com in [list(c) for c in comm_set]:
+            print(','.join(['\t'.join([c for c in com]) for com in comm_set])+'\n', file = f)
+    '''
     
     
-    
-    for SG in sub_graphs:
-        del SG
-    del sub_graphs
-    del main_graph
+    #for SG in sub_graphs:
+    #    del SG
+    #del sub_graphs
+    #del main_graph
     
     
     
@@ -193,11 +180,11 @@ if __name__ == '__main__':
     
     
     
-    '''
+
     aut_pubs[pub_cols] = aut_pubs[pub_cols].astype(bool)
     edges = edge_df(edges, aut_pubs)
-    coocc = pd.DataFrame(make_coocc_autcollab(edges, topics), index = topics).T
-    coocc = coocc*nan_identity(coocc.shape[0])
+    coocc = pd.DataFrame(matrix_utils.make_coocc_autcollab(edges, topics), index = topics).T
+    coocc = coocc*matrix_utils.nan_identity(coocc.shape[0])
     coocc.replace({1:np.nan}, inplace = True)
     
     vmax = coocc.max().max()
@@ -205,6 +192,6 @@ if __name__ == '__main__':
     #ax.xlabels = [l.replace('num_pubs_', '') for l in coocc.columns] 
     plt.savefig(os.path.join('figures', 'author_collab_hm.png'), bbox_inches='tight')
     coocc.to_csv(os.path.join('data', 'matrixes', 'corr_collaboration.csv') )
-    '''
+    
     
     

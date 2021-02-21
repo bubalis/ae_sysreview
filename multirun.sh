@@ -5,6 +5,8 @@ conda activate networks
 cd /mnt/c/Users/benja/sys_review_dis
 
 
-python find_cites.py
-python author_work.py
-python text_analysis.py
+
+
+python citations_matrix.py
+python author_network.py
+python author_cite_network.py

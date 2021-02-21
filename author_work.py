@@ -1095,7 +1095,7 @@ if __name__ == '__main__':
     
     match_cols.append('name_id')  
     assert adf['ID_num'].isnull().sum()==0
-    adf.to_csv(save_path)
+    #adf.drop_duplicates(subset=['author_id']).to_csv(save_path)
     
     print('Finding pure name-based matches.')
     adf = assign_remaining_names(adf, match_cols)
