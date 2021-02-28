@@ -34,27 +34,29 @@ def df_2col_dict(df, key_col, val_col):
 
 
 
-
-'''
-def count_overlapping_pubs(aut_row, G, df, pub_cols):
-    
-    connected_authors = nx.node_connected_component(G, aut_row['author_id'])
-    sub = df[df['author_id'].isin(connected_authors)]
-    data = sub[pub_cols].max()
-    return data - (aut_row[pub_cols]*10000)
-
-
-for topic in topics:
-    print(topic)
-    out_data = []
-    subset = aut_pubs.loc[aut_pubs[f'num_pubs_{topic}']>0]
-    new_cols = [c.replace('num_pubs', 'num_colabs') for c in pub_cols]
-    subset[new_cols] = utils.parallelize_on_rows(subset, partial(count_overlapping_pubs, 
-                                            G = G, df = aut_pubs, 
-                                            pub_cols = pub_cols,)).replace(-9999, np.nan  )
-    out_data.append(subset[new_cols].mean())
-'''
-
+# =============================================================================
+# 
+# 
+# def count_overlapping_pubs(aut_row, G, df, pub_cols):
+#     
+#     connected_authors = nx.node_connected_component(G, aut_row['author_id'])
+#     sub = df[df['author_id'].isin(connected_authors)]
+#     data = sub[pub_cols].max()
+#     return data - (aut_row[pub_cols]*10000)
+# 
+# 
+# for topic in topics:
+#     print(topic)
+#     out_data = []
+#     subset = aut_pubs.loc[aut_pubs[f'num_pubs_{topic}']>0]
+#     new_cols = [c.replace('num_pubs', 'num_colabs') for c in pub_cols]
+#     subset[new_cols] = utils.parallelize_on_rows(subset, partial(count_overlapping_pubs, 
+#                                             G = G, df = aut_pubs, 
+#                                             pub_cols = pub_cols,)).replace(-9999, np.nan  )
+#     out_data.append(subset[new_cols].mean())
+# 
+# 
+# =============================================================================
 
 def edge_df(edges, aut_pubs, id_col= 'author_id'):
     '''Convert a pandas edgelist into a dataframe with author information for 
@@ -101,14 +103,21 @@ def extract_subgraphs(G, save_name):
     main_graph = sub_graphs.pop()
     sub_graph_nodes.sort(key = len)
     communities = community.greedy_modularity_communities(main_graph)
-    with open(os.path.join('data', save_name), 'w+') as f:
+    with open(os.path.join('data', 'intermed_data', save_name), 'w+') as f:
         for line in [list(c) for c in communities]:
             print('\t'.join(line)+'\n', file = f)
         print('sub graphs:\n', file =f )
         for sg in sub_graph_nodes:
             print('\t'.join(sg)+'\n', file = f)
     return communities
+  
     
+def re_load_edge_data(name):
+    G = nx.read_edgelist(os.path.join('data', 'intermed_data', f'{name}.edgelist'))
+    with open(os.path.join('data', 'intermed_data',  f'{name}_coms_greedy_mod.txt'), 'r') as file:
+        com_nodes = [x.split('\t') for x in file.read().split('\n') if x]
+    return G, com_nodes
+#%%
 if __name__ == '__main__':
     
     adf = pd.read_csv(os.path.join('data', 'intermed_data', 'expanded_authors.csv'))
@@ -132,7 +141,7 @@ if __name__ == '__main__':
     
     G = set_degrees(G)
     
-    nx.write_edgelist(G, os.path.join('data', 'intermed_data', 'author_edges.edgelist'))
+    nx.write_edgelist(G, os.path.join('data', 'intermed_data', 'author_collab.edgelist'))
     
     
     aut_pubs = pd.read_csv(os.path.join('data', 'intermed_data', 'author_pub_data.csv'))

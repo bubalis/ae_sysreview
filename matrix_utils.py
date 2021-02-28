@@ -81,7 +81,8 @@ def cocc_plot(coocc, path):
     ax = sns.heatmap(data=coocc, vmax=vmax, cmap=mpl.cm.cividis_r, linecolor='white',linewidths=1 )
     #ax.xlabels = [l.replace('num_pubs_', '') for  in coocc.columns] 
     plt.savefig(path, bbox_inches='tight')
-    plt.show(block = False) 
+    plt.close()
+    #plt.show(block = False) 
     
 
 

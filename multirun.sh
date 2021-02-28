@@ -1,4 +1,5 @@
-name: data_prep.sh
+#!/bin/bash
+#name: data_prep.sh
 cd /home/bdube/miniconda3
 conda init bash
 conda activate networks

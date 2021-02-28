@@ -19,10 +19,146 @@ import sys
 from functools import partial
 
 
+
+def fn_alias_matcher(name, name_list):
+    '''Return a name_listst of all uniq names that name could match 
+    with that are in name_list. 
+    e.g.: if name == 'Barbieri, Lindsay (Bar)', 
+    returns 'Barbieri, Lindsay' and 'Barbieri, Bar' if both are in name_list
+    '''
+    
+    try:
+        alias, full_non_alias = separate_alias(name)
+        if not alias:
+            return []
+        ln = full_non_alias.split(',')[0]
+        ln_matches = [s for s in name_list if ln+ ',' in s]
+        
+        
+        full_alias = ln +', ' + alias
+        full_non_alias = re.sub(f' \\({alias}\\)\s*', '', name)
+        #non_alias = full_non_alias.split(', ')[1]
+        #reverse_alias = f'{ln}, {alias} ({non_alias})'
+        matches = [s for s in ln_matches if any(
+            [s==name for name in (full_alias, 
+                                 full_non_alias,
+                                  #reverse_alias
+                                  )]
+            )]
+        
+        return list(set(matches))
+    except:
+        globals().update(locals())
+        print(name)
+        raise
+
+def separate_alias(name):
+    alias_match = re.search(r'\([\w\s\.]+\)', name)
+    if alias_match:
+        alias = alias_match.group().strip(r'\(\)')
+    else:
+        return False, False
+    full_non_alias = re.sub(f' \\({alias}\\)\s*', '', name).strip()
+    
+    return alias, full_non_alias
+    
+def ln_alias_matcher(name, name_list):
+    alias, full_non_alias = separate_alias(name)
+    alias = alias.replace('nee ', '')
+    full_non_alias = full_non_alias.strip('-')
+    if not alias:
+        return []
+    full_alias = alias + ',' + full_non_alias.split(',')[1]
+    out = []
+    matches = [s for s in name_list if any(
+            [s==name for name in (full_alias, 
+                                 full_non_alias,
+                                  #reverse_alias
+                                  )]
+            )]
+        
+    return list(set(matches))
+
+    
+    
+def has_alias(name):
+    '''Return True if the name has a fn alias in it.'''
+    return bool(re.search(r'\([\w\s\.]+\)', name))
+    
+def extract_alias_authors(adf, fn= True):
+    '''Return a dataframe with one column: longer_name.
+    Having filtered down to only the longer_names that contain an alias.'''
+    return adf[adf['longer_name'].apply(has_alias)][['longer_name']]
+   
+def get_alias_type(name):
+    'Categorize and alias as being for a first or last name.'
+    parts = name.split(',')
+    
+    if has_alias(parts[1]):
+        return 'first_name'
+    elif has_alias(re.split('[\s-]', parts[0])[1]) or re.search(r'\([\w\s\.]+\)-', parts[0]):
+        return 'last_name'
+    elif has_alias(parts[0].split(' ')[0]):
+        return 'first_name'
+    return None
+   
+
+def duplicate_alias_entries(adf):
+    '''Find all entries that have an author name with an alias:
+        e.g. 'Barbieri, Lindsay (Bar).' 
+        Duplicate these entries, creating one for 
+        each possible name. e.g. 'Barbieri, Lindsay' and Barbieri, Bar '''
+    
+    alias_dict = {}
+    aliases = extract_alias_authors(adf)
+    aliases['type'] = aliases['longer_name'].apply(get_alias_type)
+    longer_names = adf['longer_name'].tolist()
+    for function, a_type in zip([fn_alias_matcher,
+                                ln_alias_matcher],
+                                ['first_name',
+                                 'last_name']
+                                ):
+        alias_list = aliases[aliases['type']==a_type]
+        for alias in alias_list:
+            res = function(alias, longer_names)
+            if res:
+                alias_dict[alias] = res
+        for alias, li in alias_dict.items():
+            if li:
+                sel_rows = adf.loc[adf['longer_name']==alias]
+                #print(f'Duplicating {sel_rows.shape[0]} rows')
+                for name in li:
+                    new_rows = sel_rows.copy()
+                    new_rows['longer_name'] = name
+                    new_rows['aut_tuple'] = new_rows['aut_tuple'].apply(
+                        lambda li: [n.replace(alias, name) for n in li])
+                    adf = adf.append(new_rows)
+                adf = adf[adf['longer_name']!=alias]
+        adf.index = range(0, adf.shape[0])
+        adf['aut_index'] = adf.index
+        return adf, alias_dict
+
+
+def merge_from_aliases(adf, alias_dict):
+    vals = [v for v in alias_dict.values() if len(v)>1]
+    for li in vals:
+        for name in li[1:]:
+            adf.loc[adf['longer_name']==name, 'longer_name'] = li[0]
+            author_id = adf.loc[adf['longer_name'] == li[0], 'author_id'].iloc[0]
+            adf.loc[adf['longer_name']==name, 'author_id'] = author_id
+    #adf['indicies'] = adf['indicies'].apply(tuple)
+    return adf.drop_duplicates(subset=['longer_name', 'ID_num', 'indicies'])
+    
+
+
+#%%     
 def aut_cleaner(string):
     '''CLean author names'''
     string=re.sub(r'"|\[|', '', string)
     string = re.sub(r"'|\]", '', string)
+    string = string.replace('()', '')
+    string = re.sub('\s+', ' ', string)
+    string = string.replace(' -', ' ')
     
     return initials_list_to_initials(string)
 
@@ -78,10 +214,10 @@ def name_spliter(name):
         print(name)
 
     
-def name_num_dict(item):
+def name_num_dict(_string):
     '''Turn an entry for ORCID IDs or Researcher IDs into a dict of 
     Name: id_num'''
-    pieces=[p for p in item.split(';') if p.strip()]
+    pieces=[p for p in _string.split(';') if p.strip()]
     try:
         vals=[piece.split('/') for piece in pieces]
         return {name.strip(): num.strip() for name, num in [v for v in vals if len(v)==2]}
@@ -115,12 +251,12 @@ def parse_names1(string):
     '''Name Parser for AU/AF columns.'''
     return [aut_cleaner(name).strip() for name in string.split(';')]
 
-def parse_names2(string):
+def parse_names_idnum(string):
     '''Name Parser for OI/RI columns.'''
-    pieces=[p.strip() for p in string.split(';')]
+    pieces=[p.strip('-, ') for p in string.split(';')]
     return [aut_cleaner(p.split('/')[0]).strip() for p in pieces]
     
-name_cols=['AU', 'AF']
+name_cols=['AF', 'AU']
 id_cols=['RI', 'OI']   
 
 def collect_all_names(row):
@@ -129,13 +265,14 @@ def collect_all_names(row):
     
     names=[]
     dis={}
-    for col in name_cols:
+    for i, col in enumerate(name_cols):
         if type(row[col])==str:
             names+=parse_names1(row[col])
             
+            
     for col in id_cols:
         if type(row[col])==str:
-            names+=parse_names2(row[col])
+            names+=parse_names_idnum(row[col])
             dis[col]=name_num_dict(row[col])
         else:
             dis[col]={}
@@ -154,43 +291,56 @@ def make_name_dict(names, di, index):
     fls=list(set([f_letter.search(n).group() for n in names if 
                   f_letter.search(n)]))
     #print(fls)
-    for fl in fls:
-        fl_names=[n for n in names if fl in n]
-        if len (fl_names) >= 2:
-            au = fl_names[0]
-            af = fl_names[1]
-        else:
-            au = None
-            af = None 
-        codes={}
-        for key, sub_dict in di.items():
-            for n in fl_names:
-                if n in sub_dict:
-                    codes[key]=sub_dict[n]
-                    break
-                elif len (n.split(', '))==2:
-                    n=n.split(', ')[1]+', '+n.split(', ')[0]
-                    if n in sub_dict:
-                        fl_names.append(n)
-                        codes[key]=sub_dict[n]
+    
+    #collect all names that match a ln_fi group
+    try:
+        for fl in fls:
+            try:
+                fl_names=[n for n in names if re.search('^'+fl, n)]
+            except:
+                continue 
+            
+            if len (fl_names) >= 2:
+                au = fl_names[0]
+                af = fl_names[1]
             else:
-                codes[key]=None
-        
-        if au:
-            #print(fl_names)
-            sub_out={**codes, **{'names': fl_names, 'indicies': index, 
-                             'AU': au, 'AF': af} } 
-        
-            out.append(sub_out) 
-    return out
-
+                au = None
+                af = None 
+            codes={}
+            for key, sub_dict in di.items():
+                for n in fl_names:
+                    if n in sub_dict:
+                        codes[key]=sub_dict[n]
+                        break
+                    elif len (n.split(', '))==2:
+                        n=n.split(', ')[1]+', '+n.split(', ')[0]
+                        if n in sub_dict:
+                            fl_names.append(n)
+                            codes[key]=sub_dict[n]
+                else:
+                    codes[key]=None
+            
+            if au:
+                #print(fl_names)
+                sub_out={**codes, **{'names': fl_names, 'indicies': index, 
+                                 'AU': au, 'AF': af} } 
+            
+                out.append(sub_out) 
+        return out
+    except:
+        globals().update(locals())
+        raise
 
 def all_ids_row(row):
     '''Collect all author identifiers for a given article. 
     Returns a list of dicts''' 
-    names, dis=collect_all_names(row)
-    return [{**{col: row[col] for col in row.index}, **row_dict} 
-        for row_dict in make_name_dict(names, dis, row.name)]
+    try:
+        names, dis=collect_all_names(row)
+        return [{**{col: row[col] for col in row.index}, **row_dict} 
+            for row_dict in make_name_dict(names, dis, row.name)]
+    except:
+        globals().update({'row': row})
+        raise
  
 #%%   
 
@@ -204,11 +354,13 @@ def make_aut_df(df):
     '''Get all name-forms associated with each numeric identifier for the two
     identifier lists.'''
     df['index'] = df.index
+    df['list_of_authors'] = df['AF'].str.lower().apply(lambda x: str(x).split(';'))
     adf = pd.DataFrame(utils.list_flattener(
         utils.parallelize_on_rows(
             df, all_ids_row, num_of_processes=6).to_list()
         )
-        )    
+        )
+    #adf.drop(columns = ['ln_fi'], inplace = True )    
     
     adf.rename(columns= {'names': 'aut_tuple', 'index': 'ID_num'},
                inplace = True)
@@ -462,7 +614,8 @@ def get_email(row):
         if '@' not in em:
             continue
         n = em.split('@')[0]
-        if string1 in n and string2 in n.replace(string1, ''):
+        if string1 in n and (string2 in n.replace(string1, '') or 
+                             only_letters(n) == string1):
             return em.strip()
 
 
@@ -502,45 +655,80 @@ def split_by_first_letter(df, col):
 
 name_group=re.compile('\[.*?\]')
 
-def parse_multi_address(string):
-    '''Turn a multi-address "[names] address [names] more address" 
-    Into a dictionary of names and their associated addresses.'''
-    names=re.findall(name_group, string)
-    names=[parse_str_list(n) for n in names]
-    addresses=[i.strip() for i in re.split(name_group, string) if i]
-    out={}
-    for name_list, address in zip(names, addresses):
-        for name in name_list:
-            out[name]=address
-    return out
 
-def parse_address_2(string, name):
+def string_to_list(_str, sep = '; '):
+    if _str[0] == '[':
+        return _str.strip('[]').split(sep)
+
+def parse_multi_address(_string, name, row):
+    '''From a multi-address  string :"[names] address [names] more address" 
+    get the correct address for name. '''
+    
+    if len(_string.split(';')) ==1 and '[' not in _string:
+            return _string
+    
+    if '[' in _string and bool(re.search(f'{name}[;\]]', _string)):
+        names=re.findall(name_group, _string)
+        names=[parse_str_list(n) for n in names]
+        addresses=[i.strip() for i in re.split(name_group, _string) if i]
+        out={}
+        for name_list, address in zip(names, addresses):
+            for _name in name_list:
+                out[_name]=address
+        return out.get(name)
+    
+    elif all([len(_string.split(';')) == len(row['list_of_authors']),
+              name in row['list_of_authors'],
+              '[' not in _string]):
+        return _string.split(';')[row['list_of_authors'].index(name)]
+    
+    else:
+        return
+    
+
+def parse_address_2(string, name, row):
     '''For parsing the corresponding author address in column "RP" 
     Split on the string 'corresponding author' Name appears before this string,
     address appears after it. 
     '''
-    
     pieces = re.split('\(corresponding author\),', string)
     for i, piece in enumerate(pieces):
         if name in piece:
-           return pieces[i+1].split(';')[0].strip()
-
+            try:
+                return pieces[i+1].split(';')[0].strip()
+            except IndexError:
+                return None
+            
 def get_address(row):
     '''Extract the author address from either column C1 (inst affiliation)
-    or from column RP (corresponding author).'''
+    or from column RP (corresponding author).
+    Try these until a valid result is returned'''
     
-    string=row['C1']
-    name=row['AU']
-    if type(string)==str:
-        if '[' in string:
-            return parse_multi_address(string).get(name)
-        else:
-            return string
-    elif type(row['RP'])==string:
-        return parse_address_2(row["RP"], name)
     
-    else:
-        return None
+    for column, function in (('C1', parse_multi_address), ('RP', parse_address_2)):
+        res = use_address_function(row, column, function)
+        if res:
+            return res
+
+
+
+def use_address_function(row, add_col, function):
+    '''Meta-function for managing the workflow of an address retrieving function.
+    Processes the string in row[add_col], and tries retreiving it using either of the
+    names in the name columns.
+    Stops when the function retreives a valid result.
+    '''
+    
+    
+    _string = row[add_col]
+    if type(_string)==str:
+        _string = _string.lower()
+        for col in ["AF", "AU"]:
+            name = row[col]
+            res = function(_string, name, row)
+            if res:
+                return res
+#%%
 
 
 def parse_str_list(string, sep=';'):
@@ -559,7 +747,7 @@ def get_postal_code(string):
         
     if type(string) != str:
         return None
-    
+    string = string.upper()
     if 'US' in string and re.search(r'\d{5}', string):
         return 'US'+' ' + re.search(r'\d{5}', string).group()
     
@@ -582,7 +770,7 @@ def check_postal_code_string(string, item):
 def extract_inst(string):
     '''Extract institution from an address string.'''
     if type(string)==str:
-        return string.split(',')[0]
+        return string.split(',')[0].lower()
     else:
         return None
 
@@ -713,7 +901,7 @@ def all_numeric_matchers(adf, ids, id_col):
     
     #Add to the 
     adf, ids = long_name_matcher(adf, ids, id_col)
-    for other_id in ['email', 'inst', 'postal_code']:
+    for other_id in ['inst', 'email', 'postal_code']:
         print(f'Matching to {id_col} by {other_id}')
         adf, ids= multi_val_matcher(adf, ids, id_col, other_id)
     return adf, ids
@@ -962,7 +1150,7 @@ def clean_data(df):
     df['AF'] = df["AF"].apply(aut_col_cleaner)
     for col in ["EM", "OI", "RI"]:
         df[col] = df[col].apply(lambda x: str(x).lower())
-    return df
+    return df.drop(columns = ['ln_fi'])
 
 
 def prep_aut_df(adf):
@@ -993,53 +1181,7 @@ def prep_aut_df(adf):
     return adf
 
 
-
-if __name__ == '__main__':
-    test = False
-    if test:
-        test_string = '_test'
-    else:
-        test_string = ''
-    
-    if len (sys.argv) == 1:
-        save_dir = os.path.join('data', 'intermed_data')
-        data_path=os.path.join(save_dir,  'all_data_2.csv')
-        save_path=os.path.join(save_dir, f'all_author_data{test_string}.csv')
-        article_data_save_path = os.path.join(save_dir,
-                                              f'expanded_authors{test_string}.csv')
-    elif len(sys.argv) == 4:
-        data_path = sys.argv[1]
-        save_path = sys.argv[2]
-        article_data_save_path =sys.argv[3]
-        
-    else:
-        raise ValueError(f'Script needs 3 arguments, data path and save path. {len(sys.argv)} args provided')
-    
-    df = pd.read_csv(data_path)
-    if test:
-        df = df.head(50000)
-    print(df.shape)
-    #assert df['ID_num'].isnull().sum()==0
-    
-    df = clean_data(df)
-    
-    columns_to_use =  ['AF', "AU", "EM", "OI", "RI", "C1", "RP" ]
-    
-    adf = make_aut_df(df.loc[:, columns_to_use])
-    print(f'Working with {adf.shape[0]} author-entries.')
-    assert adf['ID_num'].isnull().sum()==0
-    
-    
-    if not test:
-        del df
-    
-    print('Formatting Author Data')
-    adf = prep_aut_df(adf)
-    
-  
-    
-    print('Making Identifier Dataframes')
-    
+def resolve_names(adf):
     RIs = identifier_df(adf, 'RI', 'OI')
     assert np.nan not in RIs['email'].tolist()
     OIs = identifier_df(adf, 'OI', 'RI')
@@ -1079,9 +1221,9 @@ if __name__ == '__main__':
     
     uniq_names=get_uniq_items(adf, 'last_name_first_init')
     
-    to_solve = adf.loc[(adf['RI'].isnull()) & (adf['OI'].isnull()) & (adf['last_name_first_init'].isin(uniq_names) ==False )]
-    #RIs.to_csv(os.path.join('data',f'RIs{test_string}.csv')) #can 
-    #OIs.to_csv(os.path.join('data', f'OIs{test_string}.csv'))
+    #to_solve = adf.loc[(adf['RI'].isnull()) & (adf['OI'].isnull()) & (adf['last_name_first_init'].isin(uniq_names) ==False )]
+    #RIs.to_csv(os.path.join('data', 'intermed_data', f'RIs{test_string}.csv')) #can 
+    #OIs.to_csv(os.path.join('data', 'intermed_data', f'OIs{test_string}.csv'))
     
     
     adf = match_to_codes_on_full_name(adf, match_cols, uniq_names)
@@ -1102,23 +1244,97 @@ if __name__ == '__main__':
     
     adf['author_id'] = adf[match_cols].apply(utils.first_valid, axis = 1)
     
+    
+    return adf
+
+def main(df, test):
+    
+    #assert df['ID_num'].isnull().sum()==0
+    
+    df = clean_data(df)
+    
+    columns_to_use =  ['AF', "AU", "EM", "OI", "RI", "C1", "RP" ]
+    adf = make_aut_df(df.loc[:, columns_to_use])
+    print(f'Working with {adf.shape[0]} author-entries.')
+    assert adf['ID_num'].isnull().sum()==0
+    
+    if not test:
+        del df
+    print('Formatting Author Data')
+    adf = prep_aut_df(adf)
+    adf, alias_dict = duplicate_alias_entries(adf)
+    adf = resolve_names(adf)
+    
+    
+    adf = merge_from_aliases(adf, alias_dict)
     adf = assign_name_string(adf)
+    print('Making Identifier Dataframes')
+    
+   
     
     assert adf['ID_num'].isnull().sum()==0
-    del to_solve
-    del ids
+    #del to_solve
+    #del ids
     
-    adf = adf[['ID_num', 'longer_name', 'author_id']]
+    return adf
+
+def save_results(adf, data_path, 
+         save_path, article_data_save_path, nrows=None):
+    
+    adf = adf[['ID_num', 'longer_name', 'author_id', 'OI', "RI", 
+                    'email_id', 
+                    'inst_id', 
+                    'postal_code_id']]
     print('Saving Data')
-    adf.to_csv(save_path)
-    df = pd.read_csv(data_path)
-    if test:
-        df = df.head(50000)
+    adf.to_csv(save_path) 
+    df = pd.read_csv(data_path, nrows = nrows)
+    
     adf=try_merge(adf, df, left_on = 'ID_num', 
              right_on= 'index', how = 'left')
     
     
     adf.to_csv(article_data_save_path)
     
-
+#%%
+if __name__ == '__main__':
+    test  = False
+    if test:
+        test_string = '_test'
+    else:
+        test_string = ''
+    
+    if len (sys.argv) == 1:
+        save_dir = os.path.join('data', 'intermed_data')
+        data_path=os.path.join(save_dir,  'all_data_2.csv')
+        save_path=os.path.join(save_dir, f'all_author_data{test_string}.csv')
+        article_data_save_path = os.path.join(save_dir,
+                                              f'expanded_authors{test_string}.csv')
+    elif len(sys.argv) == 4:
+        data_path = sys.argv[1]
+        save_path = sys.argv[2]
+        article_data_save_path =sys.argv[3]
+        
+    else:
+        raise ValueError(f'Script needs 3 arguments, data path and save path. {len(sys.argv)} args provided')
+    
+    if test:
+        nrows = 2000*100
+    else:
+        nrows = None
+    df = pd.read_csv(data_path, nrows = nrows)
+     
+    print(df.shape)
+    #assert df['ID_num'].isnull().sum()==0
+    #df = df.dropna(subset = ['AF'])[df['AF'].dropna().str.contains('Lal, R')]
+    adf = main(df, 
+               test)
+    
+# =============================================================================
+#     adf = adf[['ID_num', 'longer_name', 'author_id']]
+#     
+#     
+#     save_results(adf, data_path, 
+#          save_path, article_data_save_path, nrows)
+# 
+# =============================================================================
 
